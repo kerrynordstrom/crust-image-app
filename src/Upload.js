@@ -4,7 +4,7 @@ import ImageUploading from "react-images-uploading";
 const Upload = () => {
   const [images, setImages] = React.useState([]);
   const [uploading, setUploading] = React.useState(false);
-  const maxNumber = 69;
+  const maxNumber = 10;
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
     console.log(imageList, addUpdateIndex);
