@@ -24,7 +24,6 @@ const BikesByModel = () => {
     <h3>Requested bike model: {bikeModel}</h3>
     {
       bikes.map(({photos, bikeID}, i) => {
-        console.log('bikeID', bikeID)
         return (<CarouselBike bikeID={bikeID} key={bikeID} showBike={active} setActive={setActive} bikeModel={bikeModel} photos={photos} />)
       })
     }
