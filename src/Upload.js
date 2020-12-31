@@ -5,7 +5,7 @@ import { postImages } from "./api/post";
 
 const Upload = () => {
   const [images, setImages] = React.useState([]);
-  const [uploading, setUploading] = React.useState(false);
+  // const [uploading, setUploading] = React.useState(false);
   const maxNumber = 10;
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
@@ -13,7 +13,7 @@ const Upload = () => {
     setImages(imageList);
   };
   const onSubmit = () => {
-    setUploading(true);
+    // setUploading(true);
 
     const formData = new FormData();
 
@@ -24,7 +24,7 @@ const Upload = () => {
 
     postImages(formData)
       .then((images) => {
-        setUploading(false);
+        // setUploading(false);
         setImages(images);
       });
   };
