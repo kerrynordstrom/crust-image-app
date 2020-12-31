@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import Upload from "./Upload";
 import BikeSelector from "./BikeSelector";
+import BikeToApprove from "./BikeToApprove";
 
 require("dotenv").config();
 
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path="/bikes">
             <BikeSelector />
+          </Route>
+          <Route path="/bike/:bikeID">
+            <BikeToApprove />
           </Route>
         </Switch>
       </div>
