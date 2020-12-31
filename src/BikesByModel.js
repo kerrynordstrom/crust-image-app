@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import {
   useParams,
 } from "react-router-dom";
-import Bike from './Bike'
 import { getBikesByModel } from './api/get'
 import CarouselBike from "./CarouselBike";
 
 const BikesByModel = () => {
   let { bikeModel } = useParams();
   const [bikes, setBikes] = useState([])
+  const [active, setActive] = useState(0)
   useEffect(() => {
     let mounted = true;
     getBikesByModel(bikeModel).then((bikes) => {
@@ -23,8 +23,8 @@ const BikesByModel = () => {
     <div>
     <h3>Requested bike model: {bikeModel}</h3>
     {
-      bikes.map(({photos}) => {
-      return (<CarouselBike bikeModel={bikeModel} photos={photos} />)
+      bikes.map(({photos, bikeID}, i) => {
+        return (<CarouselBike bikeID={bikeID} key={bikeID} showBike={active} setActive={setActive} bikeModel={bikeModel} photos={photos} />)
       })
     }
     </div>

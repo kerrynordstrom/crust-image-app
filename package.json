@@ -11,12 +11,14 @@
     "@testing-library/user-event": "^12.1.10",
     "cloudinary": "^1.23.0",
     "cloudinary-react": "^1.6.8",
+    "dotenv": "^8.2.0",
     "fetch": "^1.1.0",
     "node-sass": "4.14",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-image-gallery": "^1.0.8",
     "react-images-uploading": "^3.1.2",
+    "react-modal": "^3.12.1",
     "react-responsive-carousel": "^3.2.11",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
@@ -24,6 +26,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:production": "cross-env REACT_APP_ENVIRONMENT=production react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -45,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
