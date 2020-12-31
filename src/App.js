@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Upload from "./Upload";
 import BikeSelector from "./BikeSelector";
 
+require("dotenv").config();
+
+console.log('process.env', {env: process.env})
+
 function App() {
   return (
     <Router>
@@ -32,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
