@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/crust-image-app/static/css/main.e4b62f9e.chunk.css",
-    "main.js": "/crust-image-app/static/js/main.09b2c13c.chunk.js",
-    "main.js.map": "/crust-image-app/static/js/main.09b2c13c.chunk.js.map",
+    "main.js": "/crust-image-app/static/js/main.1480d59e.chunk.js",
+    "main.js.map": "/crust-image-app/static/js/main.1480d59e.chunk.js.map",
     "runtime-main.js": "/crust-image-app/static/js/runtime-main.f525d791.js",
     "runtime-main.js.map": "/crust-image-app/static/js/runtime-main.f525d791.js.map",
-    "static/js/2.672393e2.chunk.js": "/crust-image-app/static/js/2.672393e2.chunk.js",
-    "static/js/2.672393e2.chunk.js.map": "/crust-image-app/static/js/2.672393e2.chunk.js.map",
+    "static/js/2.0aeaac7f.chunk.js": "/crust-image-app/static/js/2.0aeaac7f.chunk.js",
+    "static/js/2.0aeaac7f.chunk.js.map": "/crust-image-app/static/js/2.0aeaac7f.chunk.js.map",
     "static/js/3.c8340b7b.chunk.js": "/crust-image-app/static/js/3.c8340b7b.chunk.js",
     "static/js/3.c8340b7b.chunk.js.map": "/crust-image-app/static/js/3.c8340b7b.chunk.js.map",
     "index.html": "/crust-image-app/index.html",
     "static/css/main.e4b62f9e.chunk.css.map": "/crust-image-app/static/css/main.e4b62f9e.chunk.css.map",
-    "static/js/2.672393e2.chunk.js.LICENSE.txt": "/crust-image-app/static/js/2.672393e2.chunk.js.LICENSE.txt"
+    "static/js/2.0aeaac7f.chunk.js.LICENSE.txt": "/crust-image-app/static/js/2.0aeaac7f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f525d791.js",
-    "static/js/2.672393e2.chunk.js",
+    "static/js/2.0aeaac7f.chunk.js",
     "static/css/main.e4b62f9e.chunk.css",
-    "static/js/main.09b2c13c.chunk.js"
+    "static/js/main.1480d59e.chunk.js"
   ]
 }
