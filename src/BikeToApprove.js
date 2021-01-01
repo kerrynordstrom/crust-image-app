@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getBikeByID } from "./api/get";
 import CarouselBike from "./CarouselBike";
 
-import { approvePhotos } from './api/get'
+import { approvePhotos } from './api/post'
 
 const onSubmit = ({ bikeID, documentID }) => {
   approvePhotos({bikeID, documentID}).then(() => {
