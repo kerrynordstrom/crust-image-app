@@ -5,7 +5,9 @@ import CarouselBike from "./CarouselBike";
 
 import { approvePhotos } from './api/get'
 
-const BikeByID = () => {
+const BikeByID = ({
+  documentID,
+}) => {
   let { bikeID } = useParams();
   const [bike, setBike] = useState([]);
   const [active, setActive] = useState(0);
@@ -21,7 +23,8 @@ const BikeByID = () => {
   return (
     <div>
       <h3>Requested bike ID: {bikeID}</h3>
-      <button onClick={() => approvePhotos(bikeID)}>
+      <h3>Requested document ID: {documentID} </h3>
+      <button onClick={() => approvePhotos({bikeID, documentID})}>
         Click to Approve
       </button>
       {bike.map(({ photos, bikeID, bikeModel }, i) => {
