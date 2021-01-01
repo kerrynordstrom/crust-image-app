@@ -39,7 +39,6 @@
       "react-app/jest"
     ]
   },
-  "homepage": "http://kerrynordstrom.github.io/crust-image-app",
   "browserslist": {
     "production": [
       ">0.2%",
