@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  HashRouter as Router,
   Switch,
   Route,
   Link,
@@ -15,14 +14,14 @@ require("dotenv").config();
 
 console.log('process.env', {env: process.env})
 
-let useQuery = () => {
-  return new URLSearchParams(useLocation().search);
-};
+// let useQuery = () => {
+//   return new URLSearchParams(useLocation().search);
+// };
 
 function App() {
-  let query = useQuery();
+  let location = useLocation();
+  let query = new URLSearchParams(location.search);
   return (
-    <Router basename={'/'}>
       <div>
         <nav>
           <ul>
@@ -47,7 +46,6 @@ function App() {
           </Route>
         </Switch>
       </div>
-    </Router>
   );
 }
 
