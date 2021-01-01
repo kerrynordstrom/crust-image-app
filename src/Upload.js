@@ -19,7 +19,6 @@ const Upload = () => {
 
     images.forEach(({file}, i) => {
       formData.append(i, file);
-      formData.append('public_id', `foo_bike_${i}`)
     });
 
     postImages(formData)

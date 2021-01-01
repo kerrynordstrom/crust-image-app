@@ -8,8 +8,3 @@ export const getBikesByModel = (bikeModel) =>
 export const getBikeByID = (bikeID) => fetch(`${domain}bike/${bikeID}`, {
       method: "GET",
       }).then((data) => data.json());
-
-export const approvePhotos = ({bikeID, documentID}) =>
-      fetch(`${domain}bike/${bikeID}/approve?documentID=${documentID}`, {
-      method: "GET",
-      }).then((res) => res.json());

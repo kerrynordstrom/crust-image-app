@@ -5,7 +5,13 @@ import CarouselBike from "./CarouselBike";
 
 import { approvePhotos } from './api/get'
 
-const BikeByID = ({
+const onSubmit = ({ bikeID, documentID }) => {
+  approvePhotos({bikeID, documentID}).then(() => {
+    console.log('photos approved for posting')
+  }).catch(error => console.log('error from approval', error));
+};
+
+const BikeToApprove = ({
   documentID,
 }) => {
   let { bikeID } = useParams();
@@ -24,7 +30,7 @@ const BikeByID = ({
     <div>
       <h3>Requested bike ID: {bikeID}</h3>
       <h3>Requested document ID: {documentID} </h3>
-      <button onClick={() => approvePhotos({bikeID, documentID})}>
+      <button onClick={onSubmit}>
         Click to Approve
       </button>
       {bike.map(({ photos, bikeID, bikeModel }, i) => {
@@ -43,4 +49,4 @@ const BikeByID = ({
   );
 };
 
-export default BikeByID;
+export default BikeToApprove;

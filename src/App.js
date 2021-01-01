@@ -14,10 +14,6 @@ require("dotenv").config();
 
 console.log('process.env', {env: process.env})
 
-// let useQuery = () => {
-//   return new URLSearchParams(useLocation().search);
-// };
-
 function App() {
   let location = useLocation();
   let query = new URLSearchParams(location.search);
