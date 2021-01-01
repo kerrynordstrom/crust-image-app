@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { getBikeByID } from "./api/get";
 import CarouselBike from "./CarouselBike";
 
+import { approvePhotos } from './api/get'
+
 const BikeByID = () => {
   let { bikeID } = useParams();
   const [bike, setBike] = useState([]);
@@ -19,6 +21,9 @@ const BikeByID = () => {
   return (
     <div>
       <h3>Requested bike ID: {bikeID}</h3>
+      <button onClick={() => approvePhotos(bikeID)}>
+        Click to Approve
+      </button>
       {bike.map(({ photos, bikeID, bikeModel }, i) => {
         return (
           <CarouselBike
