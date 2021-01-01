@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import Upload from "./Upload";
 import BikeSelector from "./BikeSelector";
@@ -11,7 +11,7 @@ console.log('process.env', {env: process.env})
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename={'/'}>
       <div>
         <nav>
           <ul>
