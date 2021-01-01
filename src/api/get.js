@@ -1,4 +1,4 @@
-import { domain } from './helpers';
+const domain = "https://crust-bikes-image-server.herokuapp.com/";
 
 export const getBikesByModel = (bikeModel) =>
       fetch(`${domain}bikes/${bikeModel}`, {
