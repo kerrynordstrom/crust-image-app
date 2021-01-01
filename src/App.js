@@ -31,7 +31,7 @@ function App() {
           <Route path="/bikes">
             <BikeSelector />
           </Route>
-          <Route path="/bike/:bikeID">
+          <Route path="/bike/approve/:bikeID">
             <BikeToApprove />
           </Route>
         </Switch>
