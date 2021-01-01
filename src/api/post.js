@@ -12,6 +12,6 @@ export const approvePhotos = ({bikeID, documentID}) => {
   });
   return fetch(`${domain}bike/${bikeID}/approve`, {
     method: "POST",
-    body: {documentID},
+    body: JSON.stringify({documentID}),
   }).then((res) => res.json());
 };

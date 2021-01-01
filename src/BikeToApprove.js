@@ -14,6 +14,7 @@ const onSubmit = ({ bikeID, documentID }) => {
 const BikeToApprove = ({
   documentID,
 }) => {
+  console.log('documentID from query', {documentID})
   let { bikeID } = useParams();
   const [bike, setBike] = useState([]);
   const [active, setActive] = useState(0);
@@ -30,7 +31,7 @@ const BikeToApprove = ({
     <div>
       <h3>Requested bike ID: {bikeID}</h3>
       <h3>Requested document ID: {documentID} </h3>
-      <button type="submit" onClick={onSubmit}>
+      <button type="submit" onClick={() => onSubmit({bikeID, documentID})}>
         Click to Approve
       </button>
       {bike.map(({ photos, bikeID, bikeModel }, i) => {
