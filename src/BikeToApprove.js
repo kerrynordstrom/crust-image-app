@@ -30,7 +30,7 @@ const BikeToApprove = ({
     <div>
       <h3>Requested bike ID: {bikeID}</h3>
       <h3>Requested document ID: {documentID} </h3>
-      <button onClick={onSubmit}>
+      <button type="submit" onClick={onSubmit}>
         Click to Approve
       </button>
       {bike.map(({ photos, bikeID, bikeModel }, i) => {
