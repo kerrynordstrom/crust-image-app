@@ -1,3 +1,10 @@
-export const getBikesByModel = (bikeModel) => fetch(`http://localhost:8080/bikes/${bikeModel}`, {
-      method: "GET"
-}).then(data => data.json());
+const domain = "https://crust-bikes-image-server.herokuapp.com/";
+
+export const getBikesByModel = (bikeModel) =>
+      fetch(`${domain}bikes/${bikeModel}`, {
+      method: "GET",
+      }).then((data) => data.json());
+
+export const getBikeByID = (bikeID) => fetch(`${domain}bike/${bikeID}`, {
+      method: "GET",
+      }).then((data) => data.json());

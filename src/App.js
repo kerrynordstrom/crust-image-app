@@ -1,12 +1,23 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import {
+  Switch,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 
 import Upload from "./Upload";
 import BikeSelector from "./BikeSelector";
+import BikeToApprove from "./BikeToApprove";
+
+require("dotenv").config();
+
+console.log('process.env', {env: process.env})
 
 function App() {
+  let location = useLocation();
+  let query = new URLSearchParams(location.search);
   return (
-    <Router>
       <div>
         <nav>
           <ul>
@@ -26,10 +37,12 @@ function App() {
           <Route path="/bikes">
             <BikeSelector />
           </Route>
+          <Route path="/bike/:bikeID">
+            <BikeToApprove documentID={query.get("documentID")} />
+          </Route>
         </Switch>
       </div>
-    </Router>
   );
 }
 
-export default App;
+export default App
