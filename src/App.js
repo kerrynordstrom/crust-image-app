@@ -12,8 +12,6 @@ import BikeToApprove from "./BikeToApprove";
 
 require("dotenv").config();
 
-console.log('process.env', {env: process.env})
-
 function App() {
   let location = useLocation();
   let query = new URLSearchParams(location.search);

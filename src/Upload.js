@@ -1,10 +1,13 @@
 import React from "react";
 import ImageUploading from "react-images-uploading";
 
+import BikeForm from "./BikeForm"
+
 import { postImages } from "./api/post";
 
 const Upload = () => {
   const [images, setImages] = React.useState([]);
+  const [approved, setApproved] = React.useState(false);
   // const [uploading, setUploading] = React.useState(false);
   const maxNumber = 10;
   const onChange = (imageList, addUpdateIndex) => {
@@ -14,18 +17,20 @@ const Upload = () => {
   };
   const onSubmit = () => {
     // setUploading(true);
-
+    console.log('approved?', approved)
     const formData = new FormData();
 
     images.forEach(({file}, i) => {
       formData.append(i, file);
     });
 
-    postImages(formData)
-      .then((images) => {
-        // setUploading(false);
-        setImages(images);
+    if (approved) {
+      postImages(formData)
+        .then((images) => {
+          // setUploading(false);
+          setImages(images);
       });
+    }
   };
 
   return (
@@ -47,7 +52,8 @@ const Upload = () => {
           dragProps,
         }) => (
           // write your building UI
-          <div className="upload__image-wrapper">
+            <div className="upload__image-wrapper">
+            <BikeForm setApproved={setApproved} />
             <button
               style={isDragging ? { color: "red" } : null}
               onClick={onImageUpload}
