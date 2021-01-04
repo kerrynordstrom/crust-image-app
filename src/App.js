@@ -7,39 +7,44 @@ import {
 } from "react-router-dom";
 
 import Upload from "./Upload";
+import AnotherUploader from "./AnotherUploader";
 import BikeSelector from "./BikeSelector";
 import BikeToApprove from "./BikeToApprove";
 
+import "./App.css";
+
 require("dotenv").config();
+
 
 function App() {
   let location = useLocation();
   let query = new URLSearchParams(location.search);
   return (
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/Upload">Upload</Link>
-            </li>
-            <li>
-              <Link to="/bikes">Bikes</Link>
-            </li>
-          </ul>
-        </nav>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/Upload">Upload</Link>
+          </li>
+          <li>
+            <Link to="/bikes">Bikes</Link>
+          </li>
+        </ul>
+      </nav>
 
-        <Switch>
-          <Route path="/upload">
-            <Upload />
-          </Route>
-          <Route path="/bikes">
-            <BikeSelector />
-          </Route>
-          <Route path="/bike/:bikeID">
-            <BikeToApprove documentID={query.get("documentID")} />
-          </Route>
-        </Switch>
-      </div>
+      <Switch>
+        <Route path="/upload">
+          { /* <AnotherUploader /> */ }
+          <Upload /> 
+        </Route>
+        <Route path="/bikes">
+          <BikeSelector />
+        </Route>
+        <Route path="/bike/:bikeID">
+          <BikeToApprove documentID={query.get("documentID")} />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
