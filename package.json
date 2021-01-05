@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@use-it/interval": "^1.0.0",
     "cloudinary": "^1.23.0",
     "cloudinary-react": "^1.6.8",
     "dotenv": "^8.2.0",
@@ -24,15 +25,16 @@
     "react-responsive-carousel": "^3.2.11",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-spinners": "^0.10.4",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start:production": "cross-env REACT_APP_ENVIRONMENT=production react-scripts start",
-    "build": "cross-env PUBLIC_URL=https://crust-image-app.s3.us-east-2.amazonaws.com  react-scripts build",
+    "start": "react-app-rewired start",
+    "start:production": "cross-env REACT_APP_ENVIRONMENT=production react-app-rewired start",
+    "build": "cross-env PUBLIC_URL=https://crust-image-app.s3.us-east-2.amazonaws.com  react-app-rewired build",
     "build:deploy": "npm run build && s3cmd sync build/* s3//crust-image-app",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -56,6 +58,13 @@
     ]
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
+    "@babel/plugin-syntax-optional-chaining": "^7.8.3",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@emotion/react": "^11.1.4",
+    "cross-env": "^7.0.3",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.1.8"
   }
 }
