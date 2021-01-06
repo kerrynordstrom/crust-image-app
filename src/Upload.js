@@ -1,5 +1,6 @@
 import React from "react";
 import ImageUploading from "react-images-uploading";
+import { useDropzone } from "react-dropzone";
 
 import BikeForm from "./BikeForm"
 import UploadPreview from "./UploadPreview"
@@ -17,12 +18,19 @@ import {
 
 import "./styles/upload.scss"
 
-const baseStyle = {
+const wrapperStyle = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+};
+
+const baseDropZoneStyle = {
   flex: 1,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: "20px",
+  width: "80%",
+  padding: "100px",
   borderWidth: 2,
   borderRadius: 2,
   borderColor: "#eeeeee",
@@ -33,24 +41,21 @@ const baseStyle = {
   transition: "border .24s ease-in-out",
 };
 
-const activeStyle = {
-  borderColor: "#2196f3",
-};
-
-const acceptStyle = {
-  borderColor: "#00e676",
-};
-
-const rejectStyle = {
-  borderColor: "#ff1744",
-};
-
 const Upload = () => {
   const [images, setImages] = React.useState([]);
   const [approved, setApproved] = React.useState(false);
   const [uploading, setUploading] = React.useState(false);
   const [finished, setFinished] = React.useState(false);
-  
+  const {
+    getRootProps,
+    // getInputProps,
+    // isDragActive,
+    // isDragAccept,
+    // isDragReject,
+  } = useDropzone({
+    accept: "image/*",
+  });
+
   const onError = (errors, _files) => {
     alert(uploadErrorMapper(errors));
   };
@@ -64,6 +69,7 @@ const Upload = () => {
       })
     );
   };
+
   const onSubmit = () => {
     if (!approved) {
       alert('Please mark your bike submission for approval!');
@@ -112,16 +118,21 @@ const Upload = () => {
           dragProps,
         }) => (
           // write your building UI
-          <div className="upload__image-wrapper">
+          <div className="upload__image-wrapper" style={wrapperStyle}>
             <BikeForm setApproved={setApproved} />
+            {(!uploading || finished) && (
+              <div>
+                <button onClick={onImageRemoveAll}>Remove all images</button>
+                <button onClick={onSubmit}>Submit</button>
+              </div>
+            )}
             <div
-              style={{ ...baseStyle }}
+              style={getRootProps({ ...baseDropZoneStyle })}
               onClick={onImageUpload}
               {...dragProps}
             >
               Click or Drop here
             </div>
-            {<Spinner loading={true} />}
             {(!uploading || finished) && (
               <div>
                 <UploadPreview
@@ -129,10 +140,9 @@ const Upload = () => {
                   onImageUpdate={onImageUpdate}
                   onImageRemove={onImageRemove}
                 />
-                <button onClick={onImageRemoveAll}>Remove all images</button>
-                <button onClick={onSubmit}>Submit</button>
               </div>
             )}
+            {uploading && <Spinner loading={true} />}
           </div>
         )}
       </ImageUploading>

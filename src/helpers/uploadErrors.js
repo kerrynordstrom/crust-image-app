@@ -1,8 +1,8 @@
 export const maxNumberOfImages = 4;
-export const maxFileSize = 5000000;
+export const maxFileSize = 10000000;
 export const resolutionType = 'less';
-export const resolutionWidth = 2500;
-export const resolutionHeight = 2500;
+export const resolutionWidth = 5500;
+export const resolutionHeight = 5500;
 
 const humanReadableBytes = maxFileSize / 1000000
 

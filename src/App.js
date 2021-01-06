@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 
 import Upload from "./Upload";
-import AnotherUploader from "./AnotherUploader";
 import BikeSelector from "./BikeSelector";
 import BikeToApprove from "./BikeToApprove";
 
@@ -34,7 +33,6 @@ function App() {
 
       <Switch>
         <Route path="/upload">
-          { /* <AnotherUploader /> */ }
           <Upload /> 
         </Route>
         <Route path="/bikes">
