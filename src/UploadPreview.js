@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 
+import StyledButton from './StyledButton'
+
 const useStyles = makeStyles({
   root: {
     width: 1000,
@@ -30,9 +32,9 @@ const UploadPreview = ({ files, onImageUpdate, onImageRemove }) => {
               alt=""
             />
             <div key={index} className="image-item">
-              <div className="image-item__btn-wrapper">
-                <button onClick={() => onImageUpdate(index)}>Update</button>
-                <button onClick={() => onImageRemove(index)}>Remove</button>
+              <div style={{display: "flex"}} className="image-item__btn-wrapper">
+                <StyledButton content="Update" onClick={() => onImageUpdate(index)}/>
+                <StyledButton content="Remove" onClick={() => onImageRemove(index)} />
               </div>
             </div>
           </ImageListItem>

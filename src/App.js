@@ -11,6 +11,7 @@ import BikeSelector from "./BikeSelector";
 import BikeToApprove from "./BikeToApprove";
 
 import "./App.css";
+import BikeSubmissionForm from "./BikeSubmissionForm";
 
 require("dotenv").config();
 
@@ -19,11 +20,13 @@ function App() {
   let location = useLocation();
   let query = new URLSearchParams(location.search);
   return (
-    <div>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <nav>
         <ul>
           <li>
-            <Link to="/Upload">Upload</Link>
+            <Link to="/upload">Upload</Link>
           </li>
           <li>
             <Link to="/bikes">Bikes</Link>
@@ -33,7 +36,8 @@ function App() {
 
       <Switch>
         <Route path="/upload">
-          <Upload /> 
+          <BikeSubmissionForm />
+          {/* <Upload /> */}
         </Route>
         <Route path="/bikes">
           <BikeSelector />

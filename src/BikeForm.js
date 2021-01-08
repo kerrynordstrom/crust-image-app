@@ -2,12 +2,14 @@ import React from 'react';
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 
-const BikeForm = ({ setApproved }) => {
+import StyledButton from "./StyledButton"
+
+const BikeForm = ({ setBikeDetails, previousStep,
+nextStep,
+}) => {
   return (
-    <div>
+    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
       <Typography variant="h6" gutterBottom>
         Bike Deets
       </Typography>
@@ -77,22 +79,11 @@ const BikeForm = ({ setApproved }) => {
         <Grid item xs={12} md={6} lg={3} align="center">
           <TextField id="rearTire" label="Front Tire" />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <FormControlLabel
-            control={
-              <Checkbox
-                color="secondary"
-                name="submitBike"
-                value="yes"
-                onChange={(event) =>
-                  event.target.checked ? setApproved(true) : setApproved(false)
-                }
-              />
-            }
-            label="Ready to submit bike for approval?"
-          />
-        </Grid>
+        <Grid item xs={12} md={6} lg={3} align="center"></Grid>
       </Grid>
+      <p>
+        <StyledButton content="Next Step" onClick={nextStep} />
+      </p>
     </div>
   );
 };

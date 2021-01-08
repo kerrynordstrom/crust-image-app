@@ -1,10 +1,12 @@
 import React from "react";
 import ImageUploading from "react-images-uploading";
 import { useDropzone } from "react-dropzone";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 
-import BikeForm from "./BikeForm"
 import UploadPreview from "./UploadPreview"
 import Spinner from "./Spinner";
+import StyledButton from "./StyledButton";
 
 import { postImages } from "./api/post";
 import {
@@ -41,7 +43,7 @@ const baseDropZoneStyle = {
   transition: "border .24s ease-in-out",
 };
 
-const Upload = () => {
+const Upload = ({ previousStep, nextStep }) => {
   const [images, setImages] = React.useState([]);
   const [approved, setApproved] = React.useState(false);
   const [uploading, setUploading] = React.useState(false);
@@ -62,33 +64,35 @@ const Upload = () => {
 
   const onChange = (imageList, _addUpdateIndex) => {
     setImages(
-      imageList.map((image) =>{
-        return Object.assign({...image}, {
-          preview: URL.createObjectURL(image.file),
-        });
+      imageList.map((image) => {
+        return Object.assign(
+          { ...image },
+          {
+            preview: URL.createObjectURL(image.file),
+          }
+        );
       })
     );
   };
 
   const onSubmit = () => {
     if (!approved) {
-      alert('Please mark your bike submission for approval!');
+      alert("Please mark your bike submission for approval!");
       return;
-    };
+    }
 
     setUploading(true);
     const formData = new FormData();
 
-    images.forEach(({file}, i) => {
+    images.forEach(({ file }, i) => {
       formData.append(i, file);
     });
 
     if (approved) {
-      postImages(formData)
-        .then((images) => {
-          setUploading(false);
-          setFinished(true);
-          setImages(images);
+      postImages(formData).then((images) => {
+        setUploading(false);
+        setFinished(true);
+        setImages(images);
       });
     }
   };
@@ -119,11 +123,34 @@ const Upload = () => {
         }) => (
           // write your building UI
           <div className="upload__image-wrapper" style={wrapperStyle}>
-            <BikeForm setApproved={setApproved} />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  color="secondary"
+                  name="submitBike"
+                  value="yes"
+                  onChange={(event) =>
+                    event.target.checked
+                      ? setApproved(true)
+                      : setApproved(false)
+                  }
+                />
+              }
+              label="Ready to submit bike for approval?"
+            />
             {(!uploading || finished) && (
-              <div>
-                <button onClick={onImageRemoveAll}>Remove all images</button>
-                <button onClick={onSubmit}>Submit</button>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                }}
+              >
+                <StyledButton
+                  content="Remove All Images"
+                  onClick={onImageRemoveAll}
+                />
+                <StyledButton content="Submit Photos" onClick={onSubmit} />
               </div>
             )}
             <div
@@ -146,8 +173,23 @@ const Upload = () => {
           </div>
         )}
       </ImageUploading>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+        className="progress-page-upload__btn-wrapper"
+      >
+        <StyledButton content="Previous Step" onClick={previousStep} />
+        <StyledButton
+          content="Next Step"
+          onClick={nextStep}
+          disabled={!finished}
+        />
+      </div>
     </div>
   );
-}
+};
 
 export default Upload;
