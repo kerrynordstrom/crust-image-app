@@ -1,16 +1,14 @@
 import React, { useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
-import ImageListItem from '@material-ui/core/ImageListItem';
 
-import StyledButton from './StyledButton'
+import SinglePhotoUploadPreview from "./uploadPreview/SinglePhotoUploadPreview";
 
 const useStyles = makeStyles({
   root: {
-    width: 1000,
-    height: 300,
+    gap: 20,
   },
-})
+});
 
 const UploadPreview = ({ files, onImageUpdate, onImageRemove }) => {
   const classes = useStyles();
@@ -22,24 +20,22 @@ const UploadPreview = ({ files, onImageUpdate, onImageRemove }) => {
     [files]
   );
     return (
-    <ImageList cols={3} rowHeight={50} className={classes.root}>
-      {files.map((file, index) => {
-        console.log({file})
-        return (
-          <ImageListItem key={file.preview}>
-            <img
-              src={file.preview}
-              alt=""
-            />
-            <div key={index} className="image-item">
-              <div style={{display: "flex"}} className="image-item__btn-wrapper">
-                <StyledButton content="Update" onClick={() => onImageUpdate(index)}/>
-                <StyledButton content="Remove" onClick={() => onImageRemove(index)} />
-              </div>
-            </div>
-          </ImageListItem>
-        );})}
-    </ImageList>
-    )
+      <ImageList
+        cols={3}
+        className={classes.root}
+      >
+    {files.map((file, index) => {
+      return (
+        <SinglePhotoUploadPreview
+          file={file}
+          key={file.preview}
+          index={index}
+          onImageUpdate={onImageUpdate}
+          onImageRemove={onImageRemove}
+        />
+      );
+      })}
+      </ImageList>
+    );
 };
 export default UploadPreview;

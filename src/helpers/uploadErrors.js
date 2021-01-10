@@ -1,4 +1,4 @@
-export const maxNumberOfImages = 4;
+export const maxNumberOfImages = 10;
 export const maxFileSize = 10000000;
 export const resolutionType = 'less';
 export const resolutionWidth = 5500;
