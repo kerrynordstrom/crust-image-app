@@ -10,11 +10,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StyledButton = ({onClick, content, disabled}) => {
+const StyledButton = ({onClick, content, disabled, style}) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div style={style} className={classes.root}>
       <Button variant="contained" color="primary" disabled={disabled} onClick={onClick} >
         {content}
       </Button>

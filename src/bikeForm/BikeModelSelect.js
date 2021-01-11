@@ -6,18 +6,18 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
-const bikeModels = [
+export const bikeModels = [
   {
     displayName: "Lightning Bolt Disc",
-    value: "lightningBoltDisc",
+    value: "lightningboltdisc",
   },
   {
     displayName: "Lightning Bolt Canti",
-    value: "lightningBoltCanti",
+    value: "lightningboltcanti",
   },
   {
     displayName: "Lightning Bolt Breakaway",
-    value: "lightningBoltBreakaway",
+    value: "lightningboltbreakaway",
   },
   {
     displayName: "Evasion",
@@ -25,15 +25,15 @@ const bikeModels = [
   },
   {
     displayName: "Evasion Lite",
-    value: "evasionLite",
+    value: "evasionlite",
   },
   {
     displayName: "Romanceur Disc",
-    value: "romanceurDisc",
+    value: "romanceurdisc",
   },
   {
     displayName: "Romanceur Canti",
-    value: "romanceurCanti",
+    value: "romanceurcanti",
   },
   {
     displayName: "Bombora",
@@ -61,7 +61,7 @@ const bikeModels = [
   },
   {
     displayName: "Shred Eagle",
-    value: "shredEagle",
+    value: "shredeagle",
   },
 ];
 

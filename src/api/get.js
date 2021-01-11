@@ -5,6 +5,10 @@ export const getBikesByModel = (bikeModel) =>
       method: "GET",
       }).then((data) => data.json());
 
+export const getAllBikes = () => fetch (`${domain}bikes`, {
+      method: "GET",
+}).then((data) => data.json());
+
 export const getBikeByID = (bikeID) => fetch(`${domain}bike/${bikeID}`, {
       method: "GET",
       }).then((data) => data.json());

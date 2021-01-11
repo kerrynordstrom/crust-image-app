@@ -2,6 +2,9 @@ import React from 'react';
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
 import BikesByModel from "./BikesByModel";
+import AllBikes from "./AllBikes";
+
+import {bikeModels} from "./bikeForm/BikeModelSelect"
 
 const BikeSelector = () => {
   let match = useRouteMatch();
@@ -10,12 +13,16 @@ const BikeSelector = () => {
       <h2>Bikes</h2>
 
       <ul>
-        <li>
-          <Link to={`${match.url}/evasion`}>Evasion</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/lightningbolt`}>Lightning Bolt</Link>
-        </li>
+        {bikeModels.map((model) => {
+          return (
+            <li>
+              <Link to={`${match.url}/${model.value}`}>
+                {model.displayName}
+              </Link>
+            </li>
+          );
+        })}
+          <Link to={`${match.url}`}>Back to All Bikes</Link>
       </ul>
 
       {/* The Topics page has its own <Switch> with more routes
@@ -27,7 +34,7 @@ const BikeSelector = () => {
           <BikesByModel />
         </Route>
         <Route path={match.path}>
-          <h3>Please select a bike model.</h3>
+          <AllBikes />
         </Route>
       </Switch>
     </div>
