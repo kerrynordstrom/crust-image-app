@@ -1,4 +1,5 @@
 import React from "react";
+import { v1 as uuidv1 } from "uuid";
 import ImageUploading from "react-images-uploading";
 import { useDropzone } from "react-dropzone";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -8,7 +9,7 @@ import UploadPreview from "./UploadPreview"
 import Spinner from "./Spinner";
 import StyledButton from "./StyledButton";
 
-import { postImages } from "./api/post";
+import { postImages, postBikeDetails } from "./api/post";
 import {
   uploadErrorMapper,
   maxNumberOfImages,
@@ -43,7 +44,7 @@ const baseDropZoneStyle = {
   transition: "border .24s ease-in-out",
 };
 
-const Upload = ({ previousStep, nextStep }) => {
+const Upload = ({ bikeDetails, previousStep, nextStep }) => {
   const [images, setImages] = React.useState([]);
   const [approved, setApproved] = React.useState(false);
   const [uploading, setUploading] = React.useState(false);
@@ -81,19 +82,26 @@ const Upload = ({ previousStep, nextStep }) => {
       return;
     }
 
-    setUploading(true);
-    const formData = new FormData();
-
-    images.forEach(({ file }, i) => {
-      formData.append(i, file);
-    });
-
     if (approved) {
-      postImages(formData).then((images) => {
+      setUploading(true);
+      const bikeID = uuidv1();
+
+      const formData = new FormData();
+
+      images.forEach(({ file }, i) => {
+        formData.append(i, file);
+      });
+      formData.append('bikeID', bikeID);
+      formData.append('bikeDetails', JSON.stringify(bikeDetails))
+
+      console.log('formData', {bikeID: formData.get('bikeID'), bikeDetails: formData.get('bikeDetails')})
+      
+      postImages(formData).then((results) => {
+        console.log('results', {results})
         setUploading(false);
         setFinished(true);
-        setImages(images);
-      });
+        // setImages(images);
+      }).catch(error => console.log(error));
     }
   };
 

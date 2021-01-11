@@ -2,88 +2,370 @@ import React from 'react';
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
 
 import StyledButton from "./StyledButton"
+import BikeModelSelect from "./bikeForm/BikeModelSelect";
+import Disclaimer from "./bikeForm/Disclaimer"
 
-const BikeForm = ({ setBikeDetails, previousStep,
-nextStep,
+const useStyles = makeStyles((theme) => {
+  console.log("theme ", { theme });
+  return {
+    root: {
+      padding: theme.spacing(1),
+    },
+  };
+});
+
+
+const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
+  nextStep,
 }) => {
+  const classes = useStyles();
+  const onChange =  (key) => (event) => {
+    if (event.target.value === "") return;
+    console.log('within onChange', {key})
+    setBikeDetails({ ...bikeDetails, [key]: event.target.value });
+  }
+  console.log('bikeDetails w/in BikeForm', {bikeDetails})
   return (
-    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <Typography variant="h6" gutterBottom>
         Bike Deets
       </Typography>
+      <Disclaimer />
       <Grid container spacing={0} justify="center" alignItems="center">
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField required id="frameSize" label="Frame size" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={12}
+          lg={12}
+          align="center"
+        >
+          <BikeModelSelect
+            value={bikeDetails.bikeModel}
+            handleChange={onChange("bikeModel")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField required id="crankset" label="Crankset" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="frameSize"
+            label="Frame size"
+            helperText="ex: 52cm, M, Extra Medium"
+            onBlur={onChange("frameSize")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="crankset"
+            label="Crankset"
+            onBlur={onChange("crankset")}
+          />
+        </Grid>
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
           <TextField
             required
             id="chainrings"
-            label="Chain Rings"
-            helperText="(model/size)"
+            label="Chain Ring(s)"
+            onBlur={onChange("chainring")}
           />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="frontDerailleur" label="Front Derailleur" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            id="frontDerailleur"
+            label="Front Derailleur"
+            onBlur={onChange("frontDerailleur")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField required id="chain" label="Chain" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="chain"
+            label="Chain"
+            onBlur={onChange("chain")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField required id="cassette" label="Cassette" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="cassette"
+            label="Cassette/Cog"
+            onBlur={onChange("cassetteOrCog")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="rearDerailleur" label="Rear Derailleur" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            id="rearDerailleur"
+            label="Rear Derailleur"
+            onBlur={onChange("rearDerailleur")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField required id="handlebars" label="Handlebars" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="handlebars"
+            label="Handlebars"
+            onBlur={onChange("handlebars")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField required id="stem" label="Stem" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="stem"
+            label="Stem"
+            onBlur={onChange("stem")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="shiftBrakeLevers" label="Shift/Brake Levers" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            id="shiftBrakeLevers"
+            label="Shift/Brake Levers"
+            onBlur={onChange("shiftOrBrakeLevers")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="frontBrake" label="Front Brake" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            id="frontBrake"
+            label="Front Brake"
+            onBlur={onChange("frontBrake")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="rearBrake" label="Rear Brake" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            id="rearBrake"
+            label="Rear Brake"
+            onBlur={onChange("rearBrake")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="seatpost" label="Seat Post" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="seatpost"
+            label="Seat Post"
+            onBlur={onChange("seatPost")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="saddle" label="Saddle" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="saddle"
+            label="Saddle"
+            onBlur={onChange("saddle")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="frontHub" label="Front Hub" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="frontHub"
+            label="Front Hub"
+            onBlur={onChange("frontHub")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="frontRim" label="Front Rim" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="frontRim"
+            label="Front Rim"
+            onBlur={onChange("frontRim")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="frontTire" label="Front Tire" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="frontTire"
+            label="Front Tire"
+            onBlur={onChange("frontTire")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="rearHub" label="Rear Hub" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="rearHub"
+            label="Rear Hub"
+            onBlur={onChange("rearHub")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="rearRim" label="Rear Rim" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="rearRim"
+            label="Rear Rim"
+            onBlur={onChange("rearRim")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center">
-          <TextField id="rearTire" label="Front Tire" />
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <TextField
+            required
+            id="rearTire"
+            label="Rear Tire"
+            onBlur={onChange("rearTire")}
+          />
         </Grid>
-        <Grid item xs={12} md={6} lg={3} align="center"></Grid>
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={12}
+          lg={12}
+          align="center"
+        >
+          <TextField
+            id="accessories"
+            label="Accessories"
+            multiline
+            rows={5}
+            rowsmax={10}
+            helperText="(racks/lights/bags/safety 'za)"
+            onBlur={onChange("accessories")}
+          />
+        </Grid>
       </Grid>
-      <p>
-        <StyledButton content="Next Step" onClick={nextStep} />
-      </p>
+      <StyledButton content="Next Step" onClick={nextStep} />
     </div>
   );
 };
