@@ -47,7 +47,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
         >
           <BikeModelSelect
             value={bikeDetails.bikeModel}
-            handleChange={onChange("bikeModel")}
+            handleChange={onChange("Bike Model")}
           />
         </Grid>
         <Grid
@@ -238,7 +238,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="seatpost"
             label="Seat Post"
-            onBlur={onChange("seatPost")}
+            onBlur={onChange("seatpost")}
           />
         </Grid>
         <Grid
