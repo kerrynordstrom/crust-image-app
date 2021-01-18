@@ -1,5 +1,5 @@
 import React from 'react';
-import StyledButton from '../../StyledButton'
+import StyledButton from '../../../../shared/StyledButton'
 
 const ReplaceRemoveButtons = ({index, onImageUpdate, onImageRemove}) => {
   return (

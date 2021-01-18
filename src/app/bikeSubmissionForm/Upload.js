@@ -5,11 +5,11 @@ import { useDropzone } from "react-dropzone";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 
-import UploadPreview from "./UploadPreview"
-import Spinner from "./Spinner";
-import StyledButton from "./StyledButton";
+import UploadPreview from "./upload/UploadPreview"
+import UploadSpinner from "./upload/UploadSpinner";
+import StyledButton from "../shared/StyledButton";
 
-import { postImages } from "./api/post";
+import { postImages } from "../../api/post";
 import {
   uploadErrorMapper,
   maxNumberOfImages,
@@ -17,10 +17,10 @@ import {
   resolutionType,
   resolutionWidth,
   resolutionHeight
-} from "./helpers/uploadErrors";
+} from "../../helpers/uploadErrors";
 import { bikeModels } from './bikeForm/BikeModelSelect'
 
-import "./styles/upload.scss"
+import "../../styles/upload.scss"
 
 const wrapperStyle = {
   display: "flex",
@@ -190,7 +190,7 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
                 />
               </div>
             )}
-            {uploading && <Spinner loading={true} />}
+            {uploading && <UploadSpinner loading={true} />}
           </div>
         )}
       </ImageUploading>

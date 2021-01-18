@@ -26,21 +26,25 @@ const BikeCard = ({
   shouldOpen,
 }
 ) => {
-  console.log({photo, bikeID, bikeDetails, shouldOpen,})
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          component="img"
-          image={photo}
-          title="Contemplative Reptile"
-        />
         <CardContent>
+          <CardMedia
+            className={classes.media}
+            component="img"
+            image={photo}
+            onClick={() => {
+              if (!shouldOpen) return;
+              openModal();
+              setActive(bikeID);
+            }}
+          />
           <Typography gutterBottom variant="h5" component="h2">
-            {bikeDetails["Bike Model"]}
+            {bikeDetails.displayName || bikeDetails["Model"] ||
+              bikeDetails.bikeModel}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             'I would like to tell you a lot about my bike but the backend does

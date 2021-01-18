@@ -25,7 +25,7 @@ const colorsToCycle = [
 const randomNumber = () => Math.floor(Math.random() * (colorsToCycle.length - 1));
 const colorChangeDelay = 400;
 
-const Spinner = ({loading}) => {
+const UploadSpinner = ({loading}) => {
   const [color, setColor] = useState(colorsToCycle[0]);
 
   useInterval(() => {
@@ -36,4 +36,4 @@ const Spinner = ({loading}) => {
       <PacmanLoader color={color} loading={loading} css={override} size={120} />)
 };
 
-export default Spinner;
+export default UploadSpinner;

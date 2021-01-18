@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import {
   useParams,
 } from "react-router-dom";
-import { getBikesByModel } from './api/get'
-import CarouselBike from "./CarouselBike";
+import { getBikesByModel } from '../../api/get'
+import CarouselBike from "../shared/CarouselBike";
 
 const BikesByModel = () => {
   let { bikeModel } = useParams();

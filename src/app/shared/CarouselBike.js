@@ -1,11 +1,11 @@
 import React from "react";
-import "./styles/carousel.scss";
+import "../../styles/carousel.scss";
 import ImageGallery from 'react-image-gallery';
 import Modal from 'react-modal';
 
 import StyledButton from './StyledButton';
-import BuildList from './BuildList';
-import BikeCard from './BikeCard'
+import BuildList from './carouselBike/BuildList';
+import BikeCard from './carouselBike/BikeCard'
 
 // Modal.setAppElement('#root')
 
@@ -34,6 +34,7 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
   }
 
   const closeModal = () => {
+    setShowBuildList(false);
     setIsOpen(false);
     setActive(0);
   }
@@ -78,7 +79,8 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
         </Modal>
       )}
     </div>
-  ) : (<BikeCard 
+  ) : (
+    <BikeCard 
       photo={resolveCardPhoto(photos)} 
       bikeID={bikeID} 
       bikeDetails={bikeDetails}

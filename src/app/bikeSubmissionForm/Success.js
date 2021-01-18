@@ -1,6 +1,6 @@
 import React from 'react';
 
-import StyledButton from "./StyledButton";
+import StyledButton from "../shared/StyledButton";
 
 const Success = ({ previousStep }) => {
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 import ImageListItem from "@material-ui/core/ImageListItem";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { maxNumberOfImages } from "../helpers/uploadErrors";
+import { maxNumberOfImages } from "../../../../helpers/uploadErrors";
 
 import ReplaceRemoveButtons from './singlePhotoUploadPreview/ReplaceRemoveButtons'
 

@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 
-import StyledButton from "./StyledButton"
+import StyledButton from "../shared/StyledButton"
 import BikeModelSelect from "./bikeForm/BikeModelSelect";
 import Disclaimer from "./bikeForm/Disclaimer"
 

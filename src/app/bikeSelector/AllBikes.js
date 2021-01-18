@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getAllBikes } from "./api/get";
-import CarouselBike from "./CarouselBike";
+import { getAllBikes } from "../../api/get";
+import CarouselBike from "../shared/CarouselBike";
 
 const AllBikes = () => {
   const [bikes, setBikes] = useState([]);

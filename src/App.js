@@ -6,12 +6,11 @@ import {
   useLocation,
 } from "react-router-dom";
 
-import Upload from "./Upload";
-import BikeSelector from "./BikeSelector";
-import BikeToApprove from "./BikeToApprove";
+import BikeSelector from "./app/BikeSelector";
+import BikeToApprove from "./app/BikeToApprove";
 
 import "./App.css";
-import BikeSubmissionForm from "./BikeSubmissionForm";
+import BikeSubmissionForm from "./app/BikeSubmissionForm";
 
 require("dotenv").config();
 
@@ -37,7 +36,6 @@ function App() {
       <Switch>
         <Route path="/upload">
           <BikeSubmissionForm />
-          {/* <Upload /> */}
         </Route>
         <Route path="/bikes">
           <BikeSelector />

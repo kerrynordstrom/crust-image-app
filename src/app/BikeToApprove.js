@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getBikeByID } from "./api/get";
-import CarouselBike from "./CarouselBike";
+import { getBikeByID } from "../api/get";
+import CarouselBike from "./shared/CarouselBike";
 
-import { approvePhotos } from './api/post'
+import { approvePhotos } from '../api/post'
 
 const onSubmit = ({ bikeID, documentID }) => {
   approvePhotos({bikeID, documentID}).then(() => {

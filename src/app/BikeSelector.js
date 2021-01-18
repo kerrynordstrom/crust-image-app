@@ -7,11 +7,10 @@ import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Select from "@material-ui/core/Select";
 
-import BikesByModel from "./BikesByModel";
-import AllBikes from "./AllBikes";
-// import BikeModelSelect from "./bikeForm/BikeModelSelect";
+import BikesByModel from "./bikeSelector/BikesByModel";
+import AllBikes from "./bikeSelector/AllBikes";
 
-import {bikeModels} from "./bikeForm/BikeModelSelect"
+import {bikeModels} from "./bikeSubmissionForm/bikeForm/BikeModelSelect"
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -61,20 +60,6 @@ const BikeSelector = ({ value, handleChange }) => {
           <FormHelperText>Please choose your Crust model</FormHelperText>
         </FormControl>
       </div>
-
-      { /* <ul style={{ display: "none" }}>
-        {bikeModels.map((model) => {
-          return (
-            <li>
-              <Link to={`${match.url}/${model.value}`}>
-                {model.displayName}
-              </Link>
-            </li>
-          );
-        })}
-        <Link to={`${match.url}`}>Back to All Bikes</Link>
-      </ul> */}
-
       {/* The Topics page has its own <Switch> with more routes
           that build on the /topics URL path. You can think of the
           2nd <Route> here as an "index" page for all topics, or
