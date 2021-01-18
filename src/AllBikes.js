@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getAllBikes } from "./api/get";
 import CarouselBike from "./CarouselBike";
 
-const BikesByModel = () => {
+const AllBikes = () => {
   const [bikes, setBikes] = useState([]);
   const [active, setActive] = useState(0);
   useEffect(() => {
@@ -17,22 +17,30 @@ const BikesByModel = () => {
     return () => (mounted = false);
   }, []);
   return (
-    <div>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <h3>Requested all bikes</h3>
-      {bikes.map(({ photos, bikeDetails, bikeID }, i) => {
-        return (
-          <CarouselBike
-            bikeID={bikeID}
-            bikeDetails={bikeDetails}
-            key={bikeID}
-            showBike={active}
-            setActive={setActive}
-            photos={photos}
-          />
-        );
-      })}
+      <div
+        style={{
+          display: "block",
+        }}
+      >
+        {bikes.map(({ photos, bikeDetails, bikeID }, i) => {
+          return (
+            <CarouselBike
+              bikeID={bikeID}
+              bikeDetails={bikeDetails}
+              key={bikeID}
+              showBike={active}
+              setActive={setActive}
+              photos={photos}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-export default BikesByModel;
+export default AllBikes;

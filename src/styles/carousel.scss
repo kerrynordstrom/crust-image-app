@@ -206,6 +206,11 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
   top: 0;
   width: 100%;
 
+  div {
+    min-height: 75vh;
+    min-width: 75vw;
+  }
+
   &.center {
     position: relative;
   }

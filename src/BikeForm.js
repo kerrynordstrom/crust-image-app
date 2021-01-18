@@ -46,7 +46,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           align="center"
         >
           <BikeModelSelect
-            value={bikeDetails.bikeModel}
+            value={bikeDetails["Bike Model"]}
             handleChange={onChange("Bike Model")}
           />
         </Grid>
@@ -61,9 +61,9 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           <TextField
             required
             id="frameSize"
-            label="Frame size"
+            label="Frame Size"
             helperText="ex: 52cm, M, Extra Medium"
-            onBlur={onChange("frameSize")}
+            onBlur={onChange("Frame Size")}
           />
         </Grid>
         <Grid
@@ -78,7 +78,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="crankset"
             label="Crankset"
-            onBlur={onChange("crankset")}
+            onBlur={onChange("Crankset")}
           />
         </Grid>
         <Grid
@@ -93,7 +93,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="chainrings"
             label="Chain Ring(s)"
-            onBlur={onChange("chainring")}
+            onBlur={onChange("Chainring")}
           />
         </Grid>
         <Grid
@@ -107,7 +107,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           <TextField
             id="frontDerailleur"
             label="Front Derailleur"
-            onBlur={onChange("frontDerailleur")}
+            onBlur={onChange("Front Derailleur")}
           />
         </Grid>
         <Grid
@@ -122,7 +122,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="chain"
             label="Chain"
-            onBlur={onChange("chain")}
+            onBlur={onChange("Chain")}
           />
         </Grid>
         <Grid
@@ -137,7 +137,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="cassette"
             label="Cassette/Cog"
-            onBlur={onChange("cassetteOrCog")}
+            onBlur={onChange("Cassete Or Cog")}
           />
         </Grid>
         <Grid
@@ -151,7 +151,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           <TextField
             id="rearDerailleur"
             label="Rear Derailleur"
-            onBlur={onChange("rearDerailleur")}
+            onBlur={onChange("Rear Derailleur")}
           />
         </Grid>
         <Grid
@@ -166,7 +166,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="handlebars"
             label="Handlebars"
-            onBlur={onChange("handlebars")}
+            onBlur={onChange("Handlebars")}
           />
         </Grid>
         <Grid
@@ -181,7 +181,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="stem"
             label="Stem"
-            onBlur={onChange("stem")}
+            onBlur={onChange("Stem")}
           />
         </Grid>
         <Grid
@@ -195,7 +195,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           <TextField
             id="shiftBrakeLevers"
             label="Shift/Brake Levers"
-            onBlur={onChange("shiftOrBrakeLevers")}
+            onBlur={onChange("Shift Or Brake Levers")}
           />
         </Grid>
         <Grid
@@ -209,7 +209,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           <TextField
             id="frontBrake"
             label="Front Brake"
-            onBlur={onChange("frontBrake")}
+            onBlur={onChange("Front Brake")}
           />
         </Grid>
         <Grid
@@ -223,7 +223,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           <TextField
             id="rearBrake"
             label="Rear Brake"
-            onBlur={onChange("rearBrake")}
+            onBlur={onChange("Rear Brake")}
           />
         </Grid>
         <Grid
@@ -238,7 +238,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="seatpost"
             label="Seat Post"
-            onBlur={onChange("seatpost")}
+            onBlur={onChange("Seatpost")}
           />
         </Grid>
         <Grid
@@ -253,7 +253,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="saddle"
             label="Saddle"
-            onBlur={onChange("saddle")}
+            onBlur={onChange("Saddle")}
           />
         </Grid>
         <Grid
@@ -268,7 +268,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="frontHub"
             label="Front Hub"
-            onBlur={onChange("frontHub")}
+            onBlur={onChange("Front Hub")}
           />
         </Grid>
         <Grid
@@ -283,7 +283,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="frontRim"
             label="Front Rim"
-            onBlur={onChange("frontRim")}
+            onBlur={onChange("Front Rim")}
           />
         </Grid>
         <Grid
@@ -298,7 +298,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="frontTire"
             label="Front Tire"
-            onBlur={onChange("frontTire")}
+            onBlur={onChange("Front Tire")}
           />
         </Grid>
         <Grid
@@ -313,7 +313,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="rearHub"
             label="Rear Hub"
-            onBlur={onChange("rearHub")}
+            onBlur={onChange("Rear Hub")}
           />
         </Grid>
         <Grid
@@ -328,7 +328,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="rearRim"
             label="Rear Rim"
-            onBlur={onChange("rearRim")}
+            onBlur={onChange("Rear Rim")}
           />
         </Grid>
         <Grid
@@ -343,7 +343,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             required
             id="rearTire"
             label="Rear Tire"
-            onBlur={onChange("rearTire")}
+            onBlur={onChange("Rear Tire")}
           />
         </Grid>
         <Grid
@@ -361,7 +361,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             rows={5}
             rowsmax={10}
             helperText="(racks/lights/bags/safety 'za)"
-            onBlur={onChange("accessories")}
+            onBlur={onChange("Accessories")}
           />
         </Grid>
       </Grid>

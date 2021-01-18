@@ -24,6 +24,7 @@
     "react-images-uploading": "^3.1.2",
     "react-modal": "^3.12.1",
     "react-responsive-carousel": "^3.2.11",
+    "react-responsive-modal": "^6.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-spinners": "^0.10.4",

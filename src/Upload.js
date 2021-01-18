@@ -9,7 +9,7 @@ import UploadPreview from "./UploadPreview"
 import Spinner from "./Spinner";
 import StyledButton from "./StyledButton";
 
-import { postImages, postBikeDetails } from "./api/post";
+import { postImages } from "./api/post";
 import {
   uploadErrorMapper,
   maxNumberOfImages,
@@ -18,6 +18,7 @@ import {
   resolutionWidth,
   resolutionHeight
 } from "./helpers/uploadErrors";
+import { bikeModels } from './bikeForm/BikeModelSelect'
 
 import "./styles/upload.scss"
 
@@ -49,6 +50,19 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
   const [approved, setApproved] = React.useState(false);
   const [uploading, setUploading] = React.useState(false);
   const [finished, setFinished] = React.useState(false);
+  const getBikeModelDisplayName = (bikeDetails) => {
+    const { "Bike Model": bikeModel } = bikeDetails
+  const filteredBike = bikeModels.filter((bike) => bike.value === bikeModel)[0];
+
+  if (filteredBike) {
+    return filteredBike.displayName;
+  } else return "Awesome Crust Bike";
+}
+
+  const embellishedBikeDetails = {
+    "Model": getBikeModelDisplayName(bikeDetails),
+    ...bikeDetails,
+  };
   const {
     getRootProps,
     // getInputProps,
@@ -92,7 +106,7 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
         formData.append(i, file);
       });
       formData.append('bikeID', bikeID);
-      formData.append('bikeDetails', JSON.stringify(bikeDetails))
+      formData.append("bikeDetails", JSON.stringify(embellishedBikeDetails));
 
       console.log('formData', {bikeID: formData.get('bikeID'), bikeDetails: formData.get('bikeDetails')})
       
@@ -129,7 +143,6 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
           isDragging,
           dragProps,
         }) => (
-          // write your building UI
           <div className="upload__image-wrapper" style={wrapperStyle}>
             <FormControlLabel
               control={

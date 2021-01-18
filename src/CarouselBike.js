@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 
 import StyledButton from './StyledButton';
 import BuildList from './BuildList';
+import BikeCard from './BikeCard'
 
 // Modal.setAppElement('#root')
 
@@ -29,8 +30,7 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
   }
 
   const afterOpenModal = () => {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
+
   }
 
   const closeModal = () => {
@@ -40,6 +40,13 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
 
   const showBuildList = () => {
     setShowBuildList(!buildListShowing ? true : false);
+  }
+
+  const resolveCardPhoto = (photos) => {
+    return (photos.length > 0 && photos[0].thumbnail
+          ? photos[0].thumbnail
+          : "https://via.placeholder.com/400x200.png?text=Placeholder"
+    )
   }
 
   console.log({bikeID, bikeDetails, showBike, showModal: bikeID === showBike})
@@ -52,9 +59,10 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
           style={customStyles}
+          ariaHideApp={false}
+          parentSelector={() => document.querySelector("#root")}
           contentLabel="Gallery Modal"
         >
-          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>{bikeModel}</h2>
           <StyledButton
             style={{ position: "absolute", marginTop: 20, zIndex: 1000 }}
             onClick={closeModal}
@@ -65,28 +73,20 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
             onClick={showBuildList}
             content="Build List"
           />
-          {buildListShowing && ( 
-            <BuildList bikeDetails={bikeDetails} />
-          )}
+          {buildListShowing && <BuildList bikeDetails={bikeDetails} />}
           <ImageGallery items={photos} />
         </Modal>
       )}
     </div>
-  ) : (
-    <img
-      onClick={() => {
-        if (photos.length === 0) return;
-        openModal();
-        setActive(bikeID);
-      }}
-      alt="placeholder"
-      src={
-        photos.length > 0 && photos[0].thumbnail
-          ? photos[0].thumbnail
-          : "https://via.placeholder.com/400x200.png?text=Placeholder"
-      }
-    ></img>
+  ) : (<BikeCard 
+      photo={resolveCardPhoto(photos)} 
+      bikeID={bikeID} 
+      bikeDetails={bikeDetails}
+      setActive={setActive} 
+      openModal={openModal} 
+      shouldOpen={photos.length > 0} 
+    /> 
   );
-};
-
-export default CarouselBike;
+  };
+  
+  export default CarouselBike;

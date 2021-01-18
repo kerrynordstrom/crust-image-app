@@ -1,90 +1,24 @@
 import React from "react";
 
 const bikeDetailsMap = {
-  frame: {
-    bikeModel: "Bike Model",
-    frameSize: "Frame Size",
-    order: 0,
-  },
-  drivetrain: {
-    frontDerailleur: "Front Derailleur",
-    rearDerailleur: "Rear Derailleur",
-    crankset: "Crank Set",
-    chainring: "Chainring",
-    chain: "Chain",
-    cassetteOrCog: "Cassette or Cog",
-    order: 1,
-  },
-  contactPoints: {
-    stem: "Stem",
-    handlebars: "Handlebars",
-    shiftOrBrakeLevers: "Shift or Brake Levers",
-    seatpost: "Seat Post",
-    saddle: "Saddle",
-    order: 2,
-  },
-  brakes: {
-    frontBrake: "Front Brake",
-    rearBrake: "Rear Brake",
-    order: 3
-  },
-  wheels: {
-    rearRim: "Rear Rim",
-    rearHub: "Rear Hub",
-    rearTire: "Rear Tire",
-    frontRim: "Front Rim",
-    frontHub: "Front Hub",
-    frontTire: "Front Tire",
-    order: 4,
-  }
+  Frame: ["Model", "Frame Size"],
+  Drivetrain: [ "Front Derailleur", "Rear Derailleur", "Crank Set", "Chainring", "Chain","Cassette or Cog" ],
+  "Contact Points": [ "Stem", "Handlebars", "Shift or Brake Levers", "Seat Post", "Saddle" ],
+  Brakes: ["Front Brake", "Rear Brake"],
+  Wheels: ["Rear Rim", "Rear Hub", "Rear Tire", "Front Rim", "Front Hub", "Front Tire" ],
 }
 
-export const formFields = {
-  cassetteOrCog: "Cassette/Cog",
-  frontBrake: "Front Brake",
-  frameSize: "Frame Size",
-  bikeModel: "Bike Model",
-  rearTire: "Rear Tire",
-  crankset: "Crankset",
-  rearRim: "Rear Rim",
-  stem: "Stem",
-  chain: "Chain",
-  seatpost: "Seat Post",
-  frontRim: "Front Rim",
-  shiftOrBrakeLevers: "Shift Or Brake Levers",
-  rearBrake: "Rear Brake",
-  frontHub: "Front Hub",
-  frontDerailleur: "Front Derailleur",
-  chainring: "Chainring",
-  rearDerailleur: "Rear Derailleur",
-  rearHub: "Rear Hub",
-  saddle: "Saddle",
-  frontTire: "Front Tire",
-  handlebars: "Handlebars",
-};
-
 const BuildList = ({bikeDetails}) => {
-  // const orderedBikeDetails = Object.values(bikeDetailsMap);
-
-  const bikeDetailsToHydrate = [];
-
-  // for (const grouping in orderedBikeDetails) {
-  //   const groupMembers = Object.values(grouping);
-
-
-  // }
-
-  for (const detail in bikeDetails) {
-    console.log(formFields[detail])
-    const displayFieldName = formFields[detail];
-    bikeDetailsToHydrate.push([displayFieldName, bikeDetails[detail]]);
-    console.log({[displayFieldName]: bikeDetails[detail]});
-  }
+  const orderedBikeDetails = Object.values(bikeDetailsMap);
+  const orderedBikeGroups = Object.entries(bikeDetailsMap);
+  console.log({bikeDetails, orderedBikeDetails, orderedBikeGroups})
   return (
     <div
       style={{
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
+        alignItems: "center",
         position: "absolute",
         height: 800,
         width: 1000,
@@ -92,13 +26,27 @@ const BuildList = ({bikeDetails}) => {
         zIndex: 999,
       }}
     >
-    {bikeDetailsToHydrate.map((detail) => (
-        <ul style={{ zIndex: 999 }}>
-          <li style={{ zIndex: 999 }}>
-            {detail[0]}: {detail[1]}
-          </li>
-        </ul>
-      ))}
+
+    {orderedBikeGroups.map((group) => {
+      return (
+        <div style={{minWidth: 300}}>
+          <header>{group[0]}</header>
+          <ul style={{zIndex: 999, listStyleType: "none"}}>
+            {
+              group[1].map(individualItem => {
+                return (
+                  <li style={{ zIndex: 999 }}>
+                    {`${individualItem}: ${bikeDetails[individualItem]}`}
+                  </li>
+                  )
+                } 
+              )
+            }
+          </ul>
+        </div>
+        )
+      })
+    }
     </div>
   );
 }
