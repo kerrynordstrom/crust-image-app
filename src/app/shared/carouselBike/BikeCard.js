@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 const BikeCard = ({
   photo, 
   bikeID,
-  bikeDetails,
+  bikeDetails = {},
   setActive,
   openModal,
   shouldOpen,

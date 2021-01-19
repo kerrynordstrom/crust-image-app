@@ -28,5 +28,7 @@ export const approvePhotos = ({bikeID, documentID}) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ documentID }),
-  }).then((res) => res.json());
+  }).then((res) => {
+    return res;
+  });
 };
