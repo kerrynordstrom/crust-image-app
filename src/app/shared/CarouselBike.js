@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/carousel.scss";
 import ImageGallery from 'react-image-gallery';
 import Modal from 'react-modal';
+import Grid from "@material-ui/core/Grid";
 
 import StyledButton from './StyledButton';
 import BuildList from './carouselBike/BuildList';
@@ -17,6 +18,9 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)'
+  },
+  overlay: {
+    zIndex: 1000
   }
 };
 
@@ -80,15 +84,15 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
       )}
     </div>
   ) : (
-    <BikeCard 
-      photo={resolveCardPhoto(photos)} 
-      bikeID={bikeID} 
+    <BikeCard
+      photo={resolveCardPhoto(photos)}
+      bikeID={bikeID}
       bikeDetails={bikeDetails}
-      setActive={setActive} 
-      openModal={openModal} 
-      shouldOpen={photos.length > 0} 
-    /> 
-  );
+      setActive={setActive}
+      openModal={openModal}
+      shouldOpen={photos.length > 0}
+    />
+    );
   };
   
   export default CarouselBike;

@@ -11,7 +11,16 @@ const Success = ({ previousStep }) => {
           onClick={previousStep}
           content="Previous Step"
         />
-        <StyledButton onClick={() => window.location = "#/bikes"} content="Go to Bikes" />
+        <StyledButton onClick={() => {
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+        window.location = "#/bikes"
+        }
+      }
+      content="Go to Bikes" />
       </div>
     </div>
   );

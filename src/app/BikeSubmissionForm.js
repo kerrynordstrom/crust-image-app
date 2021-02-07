@@ -7,7 +7,6 @@ import Success from './bikeSubmissionForm/Success';
 
 const BikeSubmissionForm = () => {
   const [bikeDetails, setBikeDetails] = useState({});
-  console.log('bikeDetails w/in BikeSubmissionForm', bikeDetails);
   return (
     <StepWizard>
       <BikeForm setBikeDetails={setBikeDetails} bikeDetails={bikeDetails} />

@@ -22,16 +22,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BikeSelector = ({ value, handleChange }) => {
+const BikeSelector = ({ value, handleChange, width }) => {
   let match = useRouteMatch();
   const classes = useStyles();
   const [model, selectModel] = useState("");
-  console.log({model})
+  console.log({model, width})
   const detailsModalOpen = false;
   return (
     <div>
       <h2>Bikes</h2>
-      <div style={{display: detailsModalOpen ? 'none' : 'inherit'}}>
+      <div style={{
+        display: detailsModalOpen ? 'none' : 'flex', 
+        flexDirection: 'column', alignItems: 'center',
+      }}>
         <FormControl
           variant="outlined"
           required

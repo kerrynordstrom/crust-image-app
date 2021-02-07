@@ -5,6 +5,7 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
+import withWidth from "@material-ui/core/withWidth";
 
 import BikeSelector from "./app/BikeSelector";
 import BikeToApprove from "./app/BikeToApprove";
@@ -15,7 +16,7 @@ import BikeSubmissionForm from "./app/BikeSubmissionForm";
 require("dotenv").config();
 
 
-function App() {
+function App({width}) {
   let location = useLocation();
   let query = new URLSearchParams(location.search);
   return (
@@ -38,7 +39,7 @@ function App() {
           <BikeSubmissionForm />
         </Route>
         <Route path="/bikes">
-          <BikeSelector />
+          <BikeSelector width={width}/>
         </Route>
         <Route path="/bike/:bikeID">
           <BikeToApprove documentID={query.get("documentID")} />
@@ -48,4 +49,4 @@ function App() {
   );
 }
 
-export default App
+export default withWidth()(App);

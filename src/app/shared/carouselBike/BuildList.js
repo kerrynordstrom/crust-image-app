@@ -29,14 +29,33 @@ const BuildList = ({bikeDetails}) => {
 
     {orderedBikeGroups.map((group) => {
       return (
-        <div style={{minWidth: 300}}>
-          <header>{group[0]}</header>
-          <ul style={{zIndex: 999, listStyleType: "none"}}>
+        <div style={{
+          display: 'flex', 
+          border: '1px solid black',
+          flexDirection: 'column', 
+          alignItems: 'center', 
+          width: '50vw',
+        }}>
+          <header style={{
+            marginBottom: 20,
+            textDecoration: 'underline',
+            fontWeight: 'bold',
+          }}>
+            {group[0]}
+          </header>
+          <ul style={{
+            zIndex: 999, listStyleType: "none",
+            marginBottom: 20,
+          }}>
             {
               group[1].map(individualItem => {
+                const itemDescription = bikeDetails[individualItem];
                 return (
-                  <li style={{ zIndex: 999 }}>
-                    {`${individualItem}: ${bikeDetails[individualItem]}`}
+                  <li style={{
+                    zIndex: 999,
+                    padding: 5,
+                  }}>
+                    {`${individualItem}: ${itemDescription || 'n/a' }`}
                   </li>
                   )
                 } 

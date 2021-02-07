@@ -365,7 +365,16 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           />
         </Grid>
       </Grid>
-      <StyledButton content="Next Step" onClick={nextStep} />
+      <StyledButton content="Next Step" onClick={
+        () => {
+          window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+          nextStep()
+        }
+      } />
     </div>
   );
 };
