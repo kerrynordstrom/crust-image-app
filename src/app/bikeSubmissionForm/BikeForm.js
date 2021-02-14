@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import StyledButton from "../shared/StyledButton"
 import BikeModelSelect from "./bikeForm/BikeModelSelect";
+import BikeDescription from "./bikeForm/BikeDescription";
 import Disclaimer from "./bikeForm/Disclaimer"
 
 const useStyles = makeStyles((theme) => {
@@ -49,6 +50,16 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             value={bikeDetails["Bike Model"]}
             handleChange={onChange("Bike Model")}
           />
+        </Grid>
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={12}
+          lg={12}
+          align="center"
+        >
+          <BikeDescription onChange={onChange} />
         </Grid>
         <Grid
           className={classes.root}
@@ -357,6 +368,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           <TextField
             id="accessories"
             label="Accessories"
+            fullWidth
             multiline
             rows={5}
             rowsmax={10}
@@ -365,16 +377,17 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           />
         </Grid>
       </Grid>
-      <StyledButton content="Next Step" onClick={
-        () => {
+      <StyledButton
+        content="Next Step"
+        onClick={() => {
           window.scroll({
             top: 0,
             left: 0,
             behavior: "smooth",
           });
-          nextStep()
-        }
-      } />
+          nextStep();
+        }}
+      />
     </div>
   );
 };
