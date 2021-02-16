@@ -44,7 +44,6 @@ const BikeCard = ({
     <Card className={classes.root}>
       <CardActionArea
         onClick={() => {
-          console.log("clicked image in bikeCard", { shouldOpen });
           if (!shouldOpen) return;
           openModal();
           setActive(bikeID);

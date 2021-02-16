@@ -111,6 +111,7 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
       postImages(formData).then((results) => {
         setUploading(false);
         setFinished(true);
+        nextStep();
       }).catch(error => console.log(error));
     }
   };
@@ -200,7 +201,7 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
         }}
         className="progress-page-upload__btn-wrapper"
       >
-        <StyledButton content="Previous Step" onClick={previousStep} />
+        <StyledButton content="Back to Bike Deets" onClick={previousStep} />
         <StyledButton
           content="Next Step"
           onClick={nextStep}

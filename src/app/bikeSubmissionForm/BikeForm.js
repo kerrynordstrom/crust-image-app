@@ -24,10 +24,8 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
   const classes = useStyles();
   const onChange =  (key) => (event) => {
     if (event.target.value === "") return;
-    console.log('within onChange', {key})
     setBikeDetails({ ...bikeDetails, [key]: event.target.value });
   }
-  console.log('bikeDetails w/in BikeForm', {bikeDetails})
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}

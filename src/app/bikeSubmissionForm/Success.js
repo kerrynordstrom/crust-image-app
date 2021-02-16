@@ -2,22 +2,23 @@ import React from 'react';
 
 import StyledButton from "../shared/StyledButton";
 
-const Success = ({ previousStep }) => {
+const Success = () => {
   return (
     <div>
-      <p>Your bike has been submitted. Please check back!</p>
-      <div style={{display: "flex"}} className="progress-page-upload__btn-wrapper">
-        <StyledButton
-          onClick={previousStep}
-          content="Previous Step"
-        />
-        <StyledButton onClick={() => {
-        window.scroll({
-          top: 0,
-          left: 0,
-          behavior: "smooth",
-        });
-        window.location = "#/bikes"
+      <p>Your bike has been submitted for approval. Please check back soon!</p>
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+      }} 
+      className="progress-page-upload__btn-wrapper">
+        <StyledButton 
+        onClick={() => {
+          window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+          window.location = "#/bikes"
         }
       }
       content="Go to Bikes" />
