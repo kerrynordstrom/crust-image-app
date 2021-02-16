@@ -33,7 +33,7 @@ const BuildList = ({bikeDetails}) => {
           border: '1px solid black',
           flexDirection: 'column', 
           alignItems: 'center', 
-          width: '50vw',
+          width: '70vw',
         }}>
           <header style={{
             marginBottom: 20,

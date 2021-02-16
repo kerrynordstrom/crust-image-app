@@ -1,5 +1,12 @@
 import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+
+const useStyles = makeStyles({
+  root: {
+    width: "50%",
+  },
+});
 
 const CharLimitTextField = ({ 
   id,
@@ -14,6 +21,7 @@ const CharLimitTextField = ({
   rowsMax, 
   fullWidth, 
   required }) => {
+  const classes = useStyles();
   const CHARACTER_LIMIT = charLimit || 255;
   const [fieldValue, setFieldValue] = useState(defaultValue);
 
@@ -24,6 +32,7 @@ const CharLimitTextField = ({
   return (
     <TextField
       id={id}
+      className={classes.root}
       label={label}
       inputProps={{
         maxLength: CHARACTER_LIMIT,
