@@ -7,7 +7,6 @@ export const postImages = (formData) =>
   }).then((res) => res.json());
 
 export const postBikeDetails = (bikeID, bikeDetails) => {
-  console.log("bikeDetails w/in postBikeDetails", bikeDetails);
   fetch(`${domain}bike-details-upload`, {
     method: "POST",
     headers: {
@@ -18,10 +17,6 @@ export const postBikeDetails = (bikeID, bikeDetails) => {
 };
 
 export const approvePhotos = ({bikeID, documentID}) => {
-  console.log('bikeID and documentID w/in approvePhotos func', {
-    bikeID,
-    documentID,
-  });
   return fetch(`${domain}bike/${bikeID}/approve`, {
     method: "POST",
     headers: {

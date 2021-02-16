@@ -37,7 +37,6 @@ const BikeCard = ({
   shouldOpen,
 }
 ) => {
-  console.log('bikeDescription in BikeCard', {bikeDetails})
 
   const classes = useStyles();
 

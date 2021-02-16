@@ -107,14 +107,10 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
       });
       formData.append('bikeID', bikeID);
       formData.append("bikeDetails", JSON.stringify(embellishedBikeDetails));
-
-      console.log('formData', {bikeID: formData.get('bikeID'), bikeDetails: formData.get('bikeDetails')})
       
       postImages(formData).then((results) => {
-        console.log('results', {results})
         setUploading(false);
         setFinished(true);
-        // setImages(images);
       }).catch(error => console.log(error));
     }
   };
@@ -165,6 +161,7 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "center",
+                  margin: "20px"
                 }}
               >
                 <StyledButton

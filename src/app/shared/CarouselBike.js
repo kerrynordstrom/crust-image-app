@@ -54,8 +54,6 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
     )
   }
 
-  console.log({bikeID, bikeDetails, showBike, showModal: bikeID === showBike})
-
   return bikeID === showBike ? (
     <div>
       {photos.length > 0 && (

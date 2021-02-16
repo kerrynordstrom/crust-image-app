@@ -12,7 +12,6 @@ const BikesByModel = () => {
   useEffect(() => {
     let mounted = true;
     getBikesByModel(bikeModel).then((bikes) => {
-      console.log('bikes', bikes)
       if (mounted) {
         setBikes(bikes);
       }

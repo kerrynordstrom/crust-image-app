@@ -10,9 +10,7 @@ const bikeDetailsMap = {
 }
 
 const BuildList = ({bikeDetails}) => {
-  const orderedBikeDetails = Object.values(bikeDetailsMap);
   const orderedBikeGroups = Object.entries(bikeDetailsMap);
-  console.log({bikeDetails, orderedBikeDetails, orderedBikeGroups})
   return (
     <div
       style={{

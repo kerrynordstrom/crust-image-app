@@ -29,7 +29,6 @@ const AllBikes = () => {
   useEffect(() => {
     let mounted = true;
     getAllBikes().then((bikes) => {
-      console.log("bikes", bikes);
       if (mounted) {
         setBikes(bikes);
       }

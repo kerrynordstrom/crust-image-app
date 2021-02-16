@@ -10,7 +10,6 @@ import CharLimitTextField from "./bikeForm/CharLimitTextField";
 import Disclaimer from "./bikeForm/Disclaimer"
 
 const useStyles = makeStyles((theme) => {
-  console.log("theme ", { theme });
   return {
     root: {
       padding: theme.spacing(1),
