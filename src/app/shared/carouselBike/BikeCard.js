@@ -18,6 +18,16 @@ const useStyles = makeStyles({
   },
 });
 
+const truncateDescription = (str, num) => {
+  if (!str) return;
+
+  if (str.length <= num) {
+    return str;
+  }
+
+  return str.slice(0, num) + '...'
+}
+
 const BikeCard = ({
   photo, 
   bikeID,
@@ -27,6 +37,8 @@ const BikeCard = ({
   shouldOpen,
 }
 ) => {
+  console.log('bikeDescription in BikeCard', {bikeDetails})
+
   const classes = useStyles();
 
   return (
@@ -44,12 +56,12 @@ const BikeCard = ({
             }}
           />
           <Typography gutterBottom variant="h5" component="h2">
-            {bikeDetails.displayName || bikeDetails["Model"] ||
+            {bikeDetails.displayName ||
+              bikeDetails["Model"] ||
               bikeDetails.bikeModel}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            'I would like to tell you a lot about my bike but the backend does
-            not support this yet.'
+            {truncateDescription(bikeDetails["Description"], 100)}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import StyledButton from "../shared/StyledButton"
 import BikeModelSelect from "./bikeForm/BikeModelSelect";
-import BikeDescription from "./bikeForm/BikeDescription";
+import CharLimitTextField from "./bikeForm/CharLimitTextField";
 import Disclaimer from "./bikeForm/Disclaimer"
 
 const useStyles = makeStyles((theme) => {
@@ -59,7 +59,20 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={12}
           align="center"
         >
-          <BikeDescription onChange={onChange} />
+          <CharLimitTextField
+            id="description"
+            label="Description"
+            dataRef="Description"
+            onChange={onChange}
+            fieldName="Description"
+            charLimit={255}
+            helperText="(Give us a tall tale about your Crust)"
+            multiLine
+            numRows={3}
+            rowsMax={10}
+            fullWidth
+            required
+          />
         </Grid>
         <Grid
           className={classes.root}
@@ -69,12 +82,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="frameSize"
+            onChange={onChange}
             label="Frame Size"
+            dataRef="Frame Size"
+            charLimit={16}
             helperText="ex: 52cm, M, Extra Medium"
-            onBlur={onChange("Frame Size")}
+            required
           />
         </Grid>
         <Grid
@@ -85,11 +100,32 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
+          <CharLimitTextField
+            id="bottomBracket"
+            onChange={onChange}
+            label="Bottom Bracket"
+            dataRef="Bottom Bracket"
+            charLimit={64}
+            helperText="ex: Shimano UN26 English 110.5mm"
             required
+          />
+        </Grid>
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <CharLimitTextField
             id="crankset"
+            onChange={onChange}
             label="Crankset"
-            onBlur={onChange("Crankset")}
+            dataRef="Crank Set"
+            charLimit={32}
+            helperText="ex: White Industries VBC"
+            required
           />
         </Grid>
         <Grid
@@ -100,11 +136,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="chainrings"
             label="Chain Ring(s)"
-            onBlur={onChange("Chainring")}
+            dataRef="Chainring"
+            onChange={onChange}
+            charLimit={16}
+            helperText="ex: 42-32, 28t, 46/42/28"
+            required
           />
         </Grid>
         <Grid
@@ -115,10 +154,31 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
+          <CharLimitTextField
+            id="pedals"
+            label="Pedals"
+            dataRef="Pedals"
+            onChange={onChange}
+            charLimit={16}
+            helperText="ex: MKS XC-III"
+            required
+          />
+        </Grid>
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={3}
+          align="center"
+        >
+          <CharLimitTextField
             id="frontDerailleur"
             label="Front Derailleur"
-            onBlur={onChange("Front Derailleur")}
+            dataRef="Front Derailleur"
+            onChange={onChange}
+            charLimit={32}
+            helperText="ex: Campagnolo Super Record"
           />
         </Grid>
         <Grid
@@ -129,11 +189,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="chain"
             label="Chain"
-            onBlur={onChange("Chain")}
+            dataRef="Chain"
+            onChange={onChange}
+            charLimit={32}
+            required
+            helperText="ex: SRAM PC-1170, Sedisport Grand Tourisme 6spd"
           />
         </Grid>
         <Grid
@@ -144,11 +207,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="cassette"
             label="Cassette/Cog"
-            onBlur={onChange("Cassete Or Cog")}
+            dataRef="Cassette or Cog"
+            onChange={onChange}
+            charLimit={32}
+            required
+            helperText="ex: SRAM PG-1130 11-42t, All City 18t"
           />
         </Grid>
         <Grid
@@ -159,10 +225,13 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
+          <CharLimitTextField
             id="rearDerailleur"
             label="Rear Derailleur"
-            onBlur={onChange("Rear Derailleur")}
+            dataRef="Rear Derailleur"
+            onChange={onChange}
+            charLimit={32}
+            helperText="ex: Huret Jubilee, Shimano XTR M970"
           />
         </Grid>
         <Grid
@@ -173,11 +242,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="handlebars"
             label="Handlebars"
-            onBlur={onChange("Handlebars")}
+            dataRef="Handlebars"
+            onChange={onChange}
+            required
+            charLimit={32}
+            helperText="ex: Crust Jungle Runner"
           />
         </Grid>
         <Grid
@@ -188,11 +260,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="stem"
             label="Stem"
-            onBlur={onChange("Stem")}
+            dataRef="Stem"
+            onChange={onChange}
+            required
+            charLimit={128}
+            helperText="ex: Nitto x Crust UI Quill Stem, Crust 40mm LD Raw Stem"
           />
         </Grid>
         <Grid
@@ -203,10 +278,13 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
+          <CharLimitTextField
             id="shiftBrakeLevers"
             label="Shift/Brake Levers"
-            onBlur={onChange("Shift Or Brake Levers")}
+            dataRef="Shift or Brake Levers"
+            onChange={onChange}
+            charLimit={64}
+            helperText="ex: TRP RRL SR Black, SRAM Force 10spd Black"
           />
         </Grid>
         <Grid
@@ -217,10 +295,13 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
+          <CharLimitTextField
             id="frontBrake"
             label="Front Brake"
-            onBlur={onChange("Front Brake")}
+            dataRef="Front Brake"
+            onChange={onChange}
+            charLimit={64}
+            helperText="ex: Crust Palm Oil"
           />
         </Grid>
         <Grid
@@ -231,10 +312,13 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
+          <CharLimitTextField
             id="rearBrake"
             label="Rear Brake"
-            onBlur={onChange("Rear Brake")}
+            dataRef="Rear Brake"
+            onChange={onChange}
+            charLimit={64}
+            helperText="ex: Crust Palm Oil"
           />
         </Grid>
         <Grid
@@ -245,11 +329,13 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="seatpost"
             label="Seat Post"
-            onBlur={onChange("Seatpost")}
+            dataRef="Seat Post"
+            onChange={onChange}
+            charLimit={64}
+            helperText="ex: Nitto S65 27.2 Black"
           />
         </Grid>
         <Grid
@@ -260,11 +346,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="saddle"
             label="Saddle"
-            onBlur={onChange("Saddle")}
+            dataRef="Saddle"
+            onChange={onChange}
+            charLimit={64}
+            required
+            helperText="ex: Brooks C17 Special Black w/ Gold Rivets, Selle Italia Turbo"
           />
         </Grid>
         <Grid
@@ -275,11 +364,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="frontHub"
             label="Front Hub"
-            onBlur={onChange("Front Hub")}
+            dataRef="Front Hub"
+            onChange={onChange}
+            charLimit={64}
+            required
+            helperText="ex: 32h Black QR SON Dynamo"
           />
         </Grid>
         <Grid
@@ -290,11 +382,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="frontRim"
             label="Front Rim"
-            onBlur={onChange("Front Rim")}
+            dataRef="Front Rim"
+            onChange={onChange}
+            charLimit={64}
+            required
+            helperText="ex: 32h Black Velocity Blunt 35 27.5"
           />
         </Grid>
         <Grid
@@ -305,11 +400,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="frontTire"
             label="Front Tire"
-            onBlur={onChange("Front Tire")}
+            dataRef="Front Tire"
+            onChange={onChange}
+            charLimit={64}
+            required
+            helperText="ex: Rene Herse Baby Shoe Pass 650b x 42"
           />
         </Grid>
         <Grid
@@ -320,11 +418,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="rearHub"
             label="Rear Hub"
-            onBlur={onChange("Rear Hub")}
+            dataRef="Rear Hub"
+            onChange={onChange}
+            charLimit={64}
+            required
+            helperText="ex: 36h 142/12 Thru Onyx Vesper MTB XDR"
           />
         </Grid>
         <Grid
@@ -335,11 +436,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="rearRim"
             label="Rear Rim"
-            onBlur={onChange("Rear Rim")}
+            dataRef="Rear Rim"
+            onChange={onChange}
+            charLimit={64}
+            required
+            helperText="ex: 32h Black Velocity Blunt 35 27.5"
           />
         </Grid>
         <Grid
@@ -350,11 +454,14 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={3}
           align="center"
         >
-          <TextField
-            required
+          <CharLimitTextField
             id="rearTire"
             label="Rear Tire"
-            onBlur={onChange("Rear Tire")}
+            dataRef="Rear Tire"
+            onChange={onChange}
+            charLimit={64}
+            required
+            helperText="ex: Rene Herse Baby Shoe Pass 650b x 42"
           />
         </Grid>
         <Grid
@@ -365,15 +472,16 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           lg={12}
           align="center"
         >
-          <TextField
+          <CharLimitTextField
             id="accessories"
             label="Accessories"
+            dataRef="Accessories"
             fullWidth
             multiline
-            rows={5}
-            rowsmax={10}
+            rows={3}
+            rowsmax={5}
             helperText="(racks/lights/bags/safety 'za)"
-            onBlur={onChange("Accessories")}
+            onChange={onChange}
           />
         </Grid>
       </Grid>
