@@ -6,6 +6,7 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 const override = css`
   display: block;
   margin: 0 auto;
+  margin-left: -2vw;
   border-color: blue;
 `;
 
@@ -25,7 +26,7 @@ const colorsToCycle = [
 const randomNumber = () => Math.floor(Math.random() * (colorsToCycle.length - 1));
 const colorChangeDelay = 400;
 
-const UploadSpinner = ({loading}) => {
+const UploadSpinner = ({loading, size}) => {
   const [color, setColor] = useState(colorsToCycle[0]);
 
   useInterval(() => {
@@ -33,7 +34,7 @@ const UploadSpinner = ({loading}) => {
     )
   }, colorChangeDelay);
   return (
-      <PacmanLoader color={color} loading={loading} css={override} size={120} />)
+      <PacmanLoader color={color} loading={loading} css={override} size={size} />)
 };
 
 export default UploadSpinner;

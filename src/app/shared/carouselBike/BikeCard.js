@@ -42,17 +42,19 @@ const BikeCard = ({
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea
+        onClick={() => {
+          console.log("clicked image in bikeCard", { shouldOpen });
+          if (!shouldOpen) return;
+          openModal();
+          setActive(bikeID);
+        }}
+      >
         <CardContent>
           <CardMedia
             className={classes.media}
             component="img"
             image={photo}
-            onClick={() => {
-              if (!shouldOpen) return;
-              openModal();
-              setActive(bikeID);
-            }}
           />
           <Typography gutterBottom variant="h5" component="h2">
             {bikeDetails.displayName ||

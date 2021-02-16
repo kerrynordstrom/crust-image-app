@@ -29,12 +29,22 @@ const BikeSelector = ({ value, handleChange, width }) => {
   console.log({model, width})
   const detailsModalOpen = false;
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <h2>Bikes</h2>
-      <div style={{
-        display: detailsModalOpen ? 'none' : 'flex', 
-        flexDirection: 'column', alignItems: 'center',
-      }}>
+      <div
+        style={{
+          display: detailsModalOpen ? "none" : "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <FormControl
           variant="outlined"
           required
@@ -49,15 +59,19 @@ const BikeSelector = ({ value, handleChange, width }) => {
           >
             {bikeModels.map((model, i) => {
               return (
-                <MenuItem className={classes.foo} key={`${model}-${i}`} value={model.value}>
-                <Link
-                onClick={() => selectModel(model.value)}
-                to={`${match.url}/${model.value}`}
+                <MenuItem
+                  className={classes.foo}
+                  key={`${model}-${i}`}
+                  value={model.value}
                 >
-                {model.displayName}
-                </Link>
+                  <Link
+                    onClick={() => selectModel(model.value)}
+                    to={`${match.url}/${model.value}`}
+                  >
+                    {model.displayName}
+                  </Link>
                 </MenuItem>
-                );
+              );
             })}
           </Select>
           <FormHelperText>Please choose your Crust model</FormHelperText>

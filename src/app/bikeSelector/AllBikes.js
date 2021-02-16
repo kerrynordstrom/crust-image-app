@@ -36,7 +36,14 @@ const AllBikes = () => {
     return () => (mounted = false);
   }, []);
   return (
-    <div>
+    <div 
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <h3>Requested all bikes</h3>
       <div className={classes.root}>
         <Grid container spacing={12} className={classes.container}>

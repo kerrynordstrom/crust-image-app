@@ -187,11 +187,12 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
                 />
               </div>
             )}
-            {uploading && <UploadSpinner loading={true} />}
+            {uploading && (<UploadSpinner loading={true} size={110} />)}
           </div>
         )}
       </ImageUploading>
-      <div
+      {
+        !uploading && (<div
         style={{
           display: "flex",
           flexDirection: "row",
@@ -205,7 +206,8 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
           onClick={nextStep}
           disabled={!finished}
         />
-      </div>
+      </div>)
+    }
     </div>
   );
 };
