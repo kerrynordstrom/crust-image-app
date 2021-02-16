@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles({
   root: {
-    width: "50%",
+    width: props => props.fullWidth ? "75%" : "50%",
   },
 });
 
@@ -21,7 +21,7 @@ const CharLimitTextField = ({
   rowsMax, 
   fullWidth, 
   required }) => {
-  const classes = useStyles();
+  const classes = useStyles({fullWidth});
   const CHARACTER_LIMIT = charLimit || 255;
   const [fieldValue, setFieldValue] = useState(defaultValue);
 
