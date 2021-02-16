@@ -28,17 +28,20 @@ const BikeToApprove = ({
     window.location.href = '/'
   };
 
-  console.log('documentID from query', {documentID})
   let { bikeID } = useParams();
   const [bike, setBike] = useState([]);
   const [active, setActive] = useState(0);
   const [disabled, setDisabled] = useState(false);
+  const [approved, setApproved] = useState(false)
   useEffect(() => {
     let mounted = true;
     getBikeByID(bikeID).then((bike) => {
       if (mounted) {
         setBike(bike);
       }
+      if (bike[0] && bike[0].approved) {
+        setApproved(bike[0].approved);
+      };
     });
     return () => (mounted = false);
   }, [bikeID]);
@@ -50,8 +53,8 @@ const BikeToApprove = ({
         <StyledButton
           type="submit"
           onClick={() => onSubmit({ bikeID, documentID, setDisabled })}
-          disabled={disabled}
-          content="Click to Approve"
+          disabled={approved || disabled }
+          content={approved ? "Bike Already Approved" : "Click to Approve"}
         />
       }
       {bike.map(({ photos, bikeID, bikeModel, bikeDetails }, i) => {
