@@ -202,11 +202,6 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
         className="progress-page-upload__btn-wrapper"
       >
         <StyledButton content="Back to Bike Deets" onClick={previousStep} />
-        <StyledButton
-          content="Next Step"
-          onClick={nextStep}
-          disabled={!finished}
-        />
       </div>)
     }
     </div>
