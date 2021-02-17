@@ -66,16 +66,27 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
           parentSelector={() => document.querySelector("#root")}
           contentLabel="Gallery Modal"
         >
+        <div 
+          style={{
+            display: "flex",
+            position: "absolute",
+            width: "160px",
+            zIndex: 1000,
+            top: "20px",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
           <StyledButton
-            style={{ position: "absolute", marginTop: 20, zIndex: 1000 }}
             onClick={closeModal}
             content="Close"
           />
           <StyledButton
-            style={{ position: "absolute", marginTop: 60, zIndex: 1000 }}
             onClick={showBuildList}
             content="Build List"
           />
+        </div>
           {buildListShowing && <BuildList bikeDetails={bikeDetails} />}
           <ImageGallery items={photos} />
         </Modal>

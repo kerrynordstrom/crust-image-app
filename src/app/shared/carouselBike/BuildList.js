@@ -20,7 +20,7 @@ const BuildList = ({bikeDetails}) => {
         alignItems: "center",
         position: "absolute",
         height: "auto",
-        width: "100vw",
+        width: "95vw",
         backgroundColor: "white",
         zIndex: 999,
       }}
@@ -36,7 +36,7 @@ const BuildList = ({bikeDetails}) => {
           width: '70vw',
         }}>
           <header style={{
-            marginBottom: 20,
+            marginBottom: 10,
             textDecoration: 'underline',
             fontWeight: 'bold',
           }}>
@@ -53,6 +53,7 @@ const BuildList = ({bikeDetails}) => {
                   <li style={{
                     zIndex: 999,
                     padding: 5,
+                    wordBreak: "break-word",
                   }}>
                     {`${individualItem}: ${itemDescription || 'n/a' }`}
                   </li>
