@@ -4,7 +4,7 @@ import ImageGallery from 'react-image-gallery';
 import Modal from 'react-modal';
 import Grid from "@material-ui/core/Grid";
 
-import StyledButton from './StyledButton';
+import CarouselButtons from './carouselBike/CarouselButtons';
 import BuildList from './carouselBike/BuildList';
 import BikeCard from './carouselBike/BikeCard'
 
@@ -66,27 +66,11 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
           parentSelector={() => document.querySelector("#root")}
           contentLabel="Gallery Modal"
         >
-        <div 
-          style={{
-            display: "flex",
-            position: "absolute",
-            width: "160px",
-            zIndex: 1000,
-            top: "20px",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <StyledButton
-            onClick={closeModal}
-            content="Close"
+          <CarouselButtons 
+            closeModal={closeModal} 
+            showBuildList={showBuildList} 
+            buildListShowing={buildListShowing} 
           />
-          <StyledButton
-            onClick={showBuildList}
-            content="Build List"
-          />
-        </div>
           {buildListShowing && <BuildList bikeDetails={bikeDetails} />}
           <ImageGallery items={photos} />
         </Modal>
@@ -101,7 +85,7 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
       openModal={openModal}
       shouldOpen={photos.length > 0}
     />
-    );
+  );
   };
   
   export default CarouselBike;

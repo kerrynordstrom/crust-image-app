@@ -1,8 +1,12 @@
+
 ul {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   list-style: none;
+  padding-inline-start: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
 }
 
 a {

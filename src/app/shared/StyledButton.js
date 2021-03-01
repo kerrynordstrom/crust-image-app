@@ -1,20 +1,35 @@
 import React from "react";
+import clsx from 'clsx';
+import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
-const StyledButton = ({onClick, content, disabled, style}) => {
+const styles = {
+  root: {
+    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    borderRadius: 3,
+    border: 0,
+    color: "white",
+    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+  },
+};
+
+const StyledButton = ({onClick, content, disabled, classes, className, style}) => {
 
   return (
-      <Button 
-        style={{
-          margin: "20px"
-        }}
-        variant="contained" color="primary" 
-        disabled={disabled} 
-        onClick={onClick} 
-      >
-        {content}
-      </Button>
+    <Button
+      style={{
+        margin: "5px",
+        minWidth: "38px",
+      }}
+      className={clsx(classes.root, className)}
+      variant="contained"
+      color="primary"
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {content}
+    </Button>
   );
 }
 
-export default StyledButton
+export default withStyles(styles)(StyledButton)
