@@ -44,7 +44,6 @@ const AllBikes = () => {
         alignItems: "center",
       }}
     >
-      <h3>Requested all bikes</h3>
       <div className={classes.root}>
         <Grid container spacing={12} className={classes.container}>
           {bikes.map(({ photos, bikeDetails, bikeID }, i) => {

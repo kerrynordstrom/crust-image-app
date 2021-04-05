@@ -37,7 +37,7 @@ const BikeSelector = ({ value, handleChange, width }) => {
         alignItems: "center",
       }}
     >
-      <h2>Bikes</h2>
+
       <div
         style={{
           display: detailsModalOpen ? "none" : "flex",

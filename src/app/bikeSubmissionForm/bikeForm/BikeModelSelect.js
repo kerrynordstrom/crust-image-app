@@ -52,16 +52,8 @@ export const bikeModels = [
     value: "noreaster",
   },
   {
-    displayName: "Cheecho",
-    value: "cheecho",
-  },
-  {
     displayName: "Scapegoat",
     value: "scapegoat",
-  },
-  {
-    displayName: "Shred Eagle",
-    value: "shredeagle",
   },
 ];
 

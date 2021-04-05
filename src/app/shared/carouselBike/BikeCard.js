@@ -74,9 +74,7 @@ const BikeCard = ({
           }}
           size="small"
           color="primary"
-        >
-          View Bike
-        </Button>
+        />
       </CardActions>
     </Card>
   );

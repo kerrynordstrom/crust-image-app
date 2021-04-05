@@ -13,3 +13,9 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
+
+.nav-link {
+  align-self: center;
+  justify-self: center;
+  margin: 0px 20px;
+}

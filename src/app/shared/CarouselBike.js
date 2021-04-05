@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 
 import CarouselButtons from './carouselBike/CarouselButtons';
 import BuildList from './carouselBike/BuildList';
-import BikeCard from './carouselBike/BikeCard'
+import SimpleBikeCard from './carouselBike/SimpleBikeCard'
 
 // Modal.setAppElement('#root')
 
@@ -77,7 +77,7 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
       )}
     </div>
   ) : (
-    <BikeCard
+    <SimpleBikeCard
       photo={resolveCardPhoto(photos)}
       bikeID={bikeID}
       bikeDetails={bikeDetails}

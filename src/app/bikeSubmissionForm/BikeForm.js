@@ -75,7 +75,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -93,7 +93,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -111,7 +111,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -129,7 +129,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -147,7 +147,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -165,7 +165,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -182,7 +182,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -200,7 +200,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -218,7 +218,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -235,7 +235,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -253,7 +253,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -271,7 +271,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -288,7 +288,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -305,7 +305,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -322,7 +322,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -339,7 +339,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -357,7 +357,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -375,7 +375,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -393,7 +393,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -403,7 +403,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             onChange={onChange}
             charLimit={64}
             required
-            helperText="ex: Rene Herse Baby Shoe Pass 650b x 42"
+            helperText="ex: Ultradynamico Cava 650b x 47.99"
           />
         </Grid>
         <Grid
@@ -411,7 +411,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -429,7 +429,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -447,7 +447,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           item
           xs={12}
           md={6}
-          lg={3}
+          lg={4}
           align="center"
         >
           <CharLimitTextField
@@ -457,7 +457,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             onChange={onChange}
             charLimit={64}
             required
-            helperText="ex: Rene Herse Baby Shoe Pass 650b x 42"
+            helperText="ex: Ultradynamico Cava 650b x 47.99"
           />
         </Grid>
         <Grid

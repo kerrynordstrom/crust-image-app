@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {
   Switch,
   Route,
@@ -19,17 +19,34 @@ require("dotenv").config();
 function App({width}) {
   let location = useLocation();
   let query = new URLSearchParams(location.search);
+  const development = window.location.href.includes('localhost');
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-      <nav>
-        <ul>
-          <li>
-            <Link to="/upload">Upload</Link>
+      <nav
+      style={{
+        position: "sticky",
+        top: development ? 0 : 170,
+        width: "125%",
+        height: "5em",
+        backgroundColor: "rgb(208, 228, 230)",
+        zIndex: 1000,
+      }}
+      >
+        <ul
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            height: "inherit",
+          }}
+        >
+          <li className="nav-link">
+            <Link to="/upload">Upload Your Crust</Link>
           </li>
-          <li>
-            <Link to="/bikes">Bikes</Link>
+          <li className="nav-link">
+            <Link to="/bikes">Peep The Bikes</Link>
           </li>
         </ul>
       </nav>

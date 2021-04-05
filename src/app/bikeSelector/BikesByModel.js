@@ -20,7 +20,6 @@ const BikesByModel = () => {
   }, [bikeModel]);
   return (
     <div>
-    <h3>Requested bike model: {bikeModel}</h3>
     {
       bikes.map(({photos, bikeDetails, bikeID}, i) => {
         return (
