@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles({
   root: {
-    width: props => props.fullWidth ? "75%" : "50%",
+    width: props => props.fullWidth ? "100%" : "75%",
   },
 });
 

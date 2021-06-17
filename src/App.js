@@ -22,24 +22,28 @@ function App({width}) {
   const development = window.location.href.includes('localhost');
   return (
     <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      style={{ display: "flex", flexDirection: "column", alignItems: "center", height: "100vh" }}
     >
       <nav
+      id="image-app-nav"
       style={{
         position: "sticky",
-        top: development ? 0 : 170,
-        width: "125%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100vw",
         height: "5em",
         backgroundColor: "rgb(208, 228, 230)",
         zIndex: 1000,
       }}
       >
         <ul
+          id="image-uploader-nav"
           style={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",
-            height: "inherit",
+            padding: "50px",
           }}
         >
           <li className="nav-link">
@@ -60,6 +64,11 @@ function App({width}) {
         </Route>
         <Route path="/bike/:bikeID">
           <BikeToApprove documentID={query.get("documentID")} />
+        </Route>
+        <Route exact path="/">
+          <h1
+          id="first-placeholder-message"
+          >Click on the links above to upload your Crust or see other rad Crusts!</h1>
         </Route>
       </Switch>
     </div>

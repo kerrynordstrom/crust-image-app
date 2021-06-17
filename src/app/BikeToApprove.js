@@ -46,12 +46,19 @@ const BikeToApprove = ({
     return () => (mounted = false);
   }, [bikeID]);
   return (
-    <div>
+    <div 
+      style={{
+        paddingTop: '200px',
+      }}
+    >
       <h3>Requested bike ID: {bikeID}</h3>
       <h3>Requested document ID: {documentID} </h3>
       {
         <StyledButton
           type="submit"
+          style={{
+            zIndex: 9999,
+          }}
           onClick={() => onSubmit({ bikeID, documentID, setDisabled })}
           disabled={approved || disabled }
           content={approved ? "Bike Already Approved" : "Click to Approve"}

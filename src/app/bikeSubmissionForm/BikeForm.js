@@ -16,18 +16,27 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
+const requiredFields = ["Bike Model", "Description", "Frame Size", "Bottom Bracket", "Crank Set", "Chainring", "Pedals", "Chain", "Cassette or Cog", "Handlebars", "Stem", "Headset", "Seat Post", "Saddle", "Front Hub", "Front Rim", "Front Tire", "Rear Hub", "Rear Rim", "Rear Tire"];
+
+const checkRequired = (bikeDetails) => {
+  const reqFulfilled = requiredFields.every(k => bikeDetails[k] !== '' && bikeDetails[k] !== null && bikeDetails[k] !== undefined)
+  return reqFulfilled;
+}
+
 
 const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
   nextStep,
 }) => {
   const classes = useStyles();
+
   const onChange =  (key) => (event) => {
-    if (event.target.value === "") return;
+    // if (event.target.value === "") return;
     setBikeDetails({ ...bikeDetails, [key]: event.target.value });
+    console.log('bikeDetails', {bikeDetails})
   }
   return (
     <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "5em"}}
     >
       <Typography variant="h6" gutterBottom>
         Bike Deets
@@ -45,6 +54,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           <BikeModelSelect
             value={bikeDetails["Bike Model"]}
             handleChange={onChange("Bike Model")}
+            required
           />
         </Grid>
         <Grid
@@ -275,12 +285,48 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
           align="center"
         >
           <CharLimitTextField
+            id="headset"
+            label="Headset"
+            dataRef="Headset"
+            onChange={onChange}
+            required
+            charLimit={64}
+            helperText="ex: Inverted Chris King,Stronglight Roller Bearing"
+          />
+        </Grid>
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={4}
+          align="center"
+        >
+          <CharLimitTextField
             id="shiftBrakeLevers"
             label="Shift/Brake Levers"
             dataRef="Shift or Brake Levers"
             onChange={onChange}
             charLimit={64}
             helperText="ex: TRP RRL SR Black, SRAM Force 10spd Black"
+          />
+        </Grid>
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={6}
+          lg={4}
+          align="center"
+        >
+          <CharLimitTextField
+            id="shifters"
+            label="Shifters"
+            dataRef="Shifters"
+            onChange={onChange}
+            charLimit={64}
+            helperText="ex: Shimano 105 bar end,
+            Simplex retrofriction downtube"
           />
         </Grid>
         <Grid
@@ -331,6 +377,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             dataRef="Seat Post"
             onChange={onChange}
             charLimit={64}
+            required
             helperText="ex: Nitto S65 27.2 Black"
           />
         </Grid>
@@ -483,6 +530,7 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
       </Grid>
       <StyledButton
         content="Next Step"
+        disabled={!checkRequired(bikeDetails)}
         onClick={() => {
           window.scroll({
             top: 0,

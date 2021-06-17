@@ -6,7 +6,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 
 import UploadPreview from "./upload/UploadPreview"
-import UploadSpinner from "./upload/UploadSpinner";
+import UploadSpinner from "../shared/UploadSpinner";
 import StyledButton from "../shared/StyledButton";
 
 import { postImages } from "../../api/post";
@@ -26,6 +26,7 @@ const wrapperStyle = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  padding: "2em",
 };
 
 const baseDropZoneStyle = {
@@ -93,6 +94,11 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
   const onSubmit = () => {
     if (!approved) {
       alert("Please mark your bike submission for approval!");
+      return;
+    }
+
+    if (images.length < 1) {
+      alert("Please upload at least one photo of your beautiful Crust!");
       return;
     }
 
@@ -169,16 +175,18 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
                   content="Remove All Images"
                   onClick={onImageRemoveAll}
                 />
-                <StyledButton content="Submit Photos" onClick={onSubmit} />
+                <StyledButton disabled={images.length < 1 || uploading || finished || !approved} content="Submit Photos" onClick={onSubmit} />
               </div>
             )}
-            <div
+            {((!uploading && !approved) || (images.length === 0)) && (
+              <div
               style={getRootProps({ ...baseDropZoneStyle })}
               onClick={onImageUpload}
               {...dragProps}
             >
               Click or Drop here
             </div>
+            )}
             {(!uploading || finished) && (
               <div>
                 <UploadPreview
@@ -188,7 +196,7 @@ const Upload = ({ bikeDetails, previousStep, nextStep }) => {
                 />
               </div>
             )}
-            {uploading && (<UploadSpinner loading={true} size={110} />)}
+            {uploading && (<UploadSpinner type={"pacman"} loading={true} size={110} />)}
           </div>
         )}
       </ImageUploading>

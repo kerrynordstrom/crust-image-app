@@ -4,7 +4,9 @@ import StyledButton from "../shared/StyledButton";
 
 const Success = () => {
   return (
-    <div>
+    <div style={{
+      paddingTop: "50px",
+    }}>
       <p>Your bike has been submitted for approval. Please check back soon!</p>
       <div style={{
         display: "flex",

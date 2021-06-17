@@ -20,13 +20,16 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  select: {
+    display: 'flex',
+    flexDirection: 'column',
+  }
 }));
 
 const BikeSelector = ({ value, handleChange, width }) => {
   let match = useRouteMatch();
   const classes = useStyles();
   const [model, selectModel] = useState("");
-  console.log({model, width})
   const detailsModalOpen = false;
   return (
     <div
@@ -35,6 +38,8 @@ const BikeSelector = ({ value, handleChange, width }) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        top: "255px",
+        position: "sticky",
       }}
     >
 
@@ -50,17 +55,17 @@ const BikeSelector = ({ value, handleChange, width }) => {
           required
           className={classes.formControl}
         >
-          <InputLabel id="demo-simple-select-label">Bike Model</InputLabel>
+          <InputLabel id="bike-selection-dropdown">Bike Model</InputLabel>
           <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
+            labelId="bike-selection-dropdown-label"
+            id="bike-selection-dropdown"
+            className={classes.select}
             value={value || ""}
             onChange={handleChange}
           >
             {bikeModels.map((model, i) => {
               return (
                 <MenuItem
-                  className={classes.foo}
                   key={`${model}-${i}`}
                   value={model.value}
                 >

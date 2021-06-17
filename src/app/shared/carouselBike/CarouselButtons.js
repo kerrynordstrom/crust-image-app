@@ -4,7 +4,6 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import StyledButton from "../StyledButton"
 
 const CarouselButtons = ({closeModal, showBuildList, buildListShowing}) => {
-  console.log('buildListShowing', buildListShowing)
   const mediumSizeQuery = useMediaQuery("(min-width: 600px)");
 
   return (

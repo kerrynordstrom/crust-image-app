@@ -7,6 +7,7 @@ import SinglePhotoUploadPreview from "./uploadPreview/SinglePhotoUploadPreview";
 const useStyles = makeStyles({
   root: {
     gap: 20,
+    margin: "2em",
   },
 });
 

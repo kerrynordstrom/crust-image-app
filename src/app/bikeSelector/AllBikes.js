@@ -44,6 +44,7 @@ const AllBikes = () => {
         alignItems: "center",
       }}
     >
+    {bikes.length > 0 ? (
       <div className={classes.root}>
         <Grid container spacing={12} className={classes.container}>
           {bikes.map(({ photos, bikeDetails, bikeID }, i) => {
@@ -60,6 +61,9 @@ const AllBikes = () => {
           })}
         </Grid>
       </div>
+    ) :
+    (<h1>No bikes yet!</h1>)
+    }
     </div>
   );
 };

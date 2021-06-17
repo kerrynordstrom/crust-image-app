@@ -3,7 +3,7 @@ import React from "react";
 const bikeDetailsMap = {
   Frame: ["Description", "Model", "Frame Size"],
   Drivetrain: [ "Front Derailleur", "Rear Derailleur", "Crank Set", "Bottom Bracket", "Chainring", "Chain","Cassette or Cog", "Pedals"],
-  "Contact Points": [ "Stem", "Handlebars", "Shift or Brake Levers", "Seat Post", "Saddle" ],
+  "Contact Points": [ "Stem", "Headset", "Handlebars", "Shift or Brake Levers", "Shifters", "Seat Post", "Saddle" ],
   Brakes: ["Front Brake", "Rear Brake"],
   Wheels: ["Rear Rim", "Rear Hub", "Rear Tire", "Front Rim", "Front Hub", "Front Tire" ],
   Etc: ["Accessories"],
@@ -42,7 +42,9 @@ const BuildList = ({bikeDetails}) => {
           }}>
             {group[0]}
           </header>
-          <ul style={{
+          <ul 
+          id="build-list"
+          style={{
             zIndex: 999, listStyleType: "none",
             marginBottom: 20,
           }}>
