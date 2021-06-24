@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 
 import { getAllBikes } from "../../api/get";
 import CarouselBike from "../shared/CarouselBike";
+import UploadSpinner from "../shared/UploadSpinner";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,11 +26,14 @@ const AllBikes = () => {
   const classes = useStyles();
 
   const [bikes, setBikes] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [active, setActive] = useState(0);
   useEffect(() => {
     let mounted = true;
+    setLoading(true);
     getAllBikes().then((bikes) => {
       if (mounted) {
+        setLoading(false);
         setBikes(bikes);
       }
     });
@@ -44,13 +48,14 @@ const AllBikes = () => {
         alignItems: "center",
       }}
     >
-    {bikes.length > 0 ? (
+    {(bikes.length > 0 && !loading) ? (
       <div className={classes.root}>
         <Grid container spacing={12} className={classes.container}>
-          {bikes.map(({ photos, bikeDetails, bikeID }, i) => {
+          {bikes.map(({ photos, bikeDetails, userName, bikeID }, i) => {
             return (
               <CarouselBike
                 bikeID={bikeID}
+                userName={userName}
                 bikeDetails={bikeDetails}
                 key={bikeID}
                 showBike={active}
@@ -61,8 +66,11 @@ const AllBikes = () => {
           })}
         </Grid>
       </div>
-    ) :
-    (<h1>No bikes yet!</h1>)
+        ) : loading 
+          ? (<div className="loading-spinner">
+              <UploadSpinner loading={loading} size={30} />
+            </div>) 
+          : (<h1>No bikes yet!</h1>)
     }
     </div>
   );

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const requiredFields = ["Bike Model", "Description", "Frame Size", "Bottom Bracket", "Crank Set", "Chainring", "Pedals", "Chain", "Cassette or Cog", "Handlebars", "Stem", "Headset", "Seat Post", "Saddle", "Front Hub", "Front Rim", "Front Tire", "Rear Hub", "Rear Rim", "Rear Tire"];
+const requiredFields = ["Email Address", "Name", "Bike Model", "Description", "Frame Size", "Bottom Bracket", "Crank Set", "Chainring", "Pedals", "Chain", "Cassette or Cog", "Handlebars", "Stem", "Headset", "Seat Post", "Saddle", "Front Hub", "Front Rim", "Front Tire", "Rear Hub", "Rear Rim", "Rear Tire"];
 
 const checkRequired = (bikeDetails) => {
   const reqFulfilled = requiredFields.every(k => bikeDetails[k] !== '' && bikeDetails[k] !== null && bikeDetails[k] !== undefined)
@@ -32,7 +32,6 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
   const onChange =  (key) => (event) => {
     // if (event.target.value === "") return;
     setBikeDetails({ ...bikeDetails, [key]: event.target.value });
-    console.log('bikeDetails', {bikeDetails})
   }
   return (
     <div
@@ -76,6 +75,46 @@ const BikeForm = ({ bikeDetails, setBikeDetails, previousStep,
             multiLine
             numRows={3}
             rowsMax={10}
+            fullWidth
+            required
+          />
+        </Grid>
+          <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={12}
+          lg={12}
+          align="center"
+        >
+          <CharLimitTextField
+            id="email"
+            label="Email Address"
+            dataRef="Email Address"
+            onChange={onChange}
+            fieldName="Email Address"
+            charLimit={128}
+            helperText="Please input your email address"
+            fullWidth
+            required
+          />
+        </Grid>
+        <Grid
+          className={classes.root}
+          item
+          xs={12}
+          md={12}
+          lg={12}
+          align="center"
+        >
+          <CharLimitTextField
+            id="userName"
+            label="User Name"
+            dataRef="User Name"
+            onChange={onChange}
+            fieldName="User Name"
+            charLimit={64}
+            helperText="Please input a handle or your real name if you'd like"
             fullWidth
             required
           />

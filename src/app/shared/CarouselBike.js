@@ -8,26 +8,31 @@ import CarouselButtons from './carouselBike/CarouselButtons';
 import BuildList from './carouselBike/BuildList';
 import SimpleBikeCard from './carouselBike/SimpleBikeCard'
 
+import useWindowDimensions from '../../helpers/useWindowDimensions'
+
 // Modal.setAppElement('#root')
 
-const customStyles = {
+const customStyles = ({width, height}) => ({
   content: {
     top: '50%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    width: '100vw',
+    height: width < 768 ? '50vh' : '100vh'
   },
   overlay: {
     zIndex: 1000
   }
-};
+});
 
-const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeModel}) => {
+const CarouselBike = ({showBike, bikeDetails, userName, photos, setActive, bikeID, bikeModel}) => {
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [buildListShowing, setShowBuildList] = React.useState(false);
+  const { height, width } = useWindowDimensions();
 
   const openModal = () => {
     setIsOpen(true);
@@ -61,7 +66,7 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
           onRequestClose={closeModal}
-          style={customStyles}
+          style={customStyles({width, height})}
           ariaHideApp={false}
           parentSelector={() => document.querySelector("#root")}
           contentLabel="Gallery Modal"
@@ -71,7 +76,7 @@ const CarouselBike = ({showBike, bikeDetails, photos, setActive, bikeID, bikeMod
             showBuildList={showBuildList} 
             buildListShowing={buildListShowing} 
           />
-          {buildListShowing && <BuildList bikeDetails={bikeDetails} />}
+          {buildListShowing && <BuildList bikeDetails={{...bikeDetails, 'User Name': userName}} />}
           <ImageGallery items={photos} />
         </Modal>
       )}

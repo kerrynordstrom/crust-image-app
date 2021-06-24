@@ -15,8 +15,8 @@ ul {
   flex-direction: column;
   align-items: flex-start;
 }
-s
-#image-uploader-nav {
+
+s #image-uploader-nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -38,13 +38,17 @@ a {
   padding-top: 0px;
 }
 
+.loading-spinner {
+  margin-top: 5em;
+}
+
 #first-placeholder-message {
   margin-top: 90px;
 }
 
 @media only screen and (min-width: 769px) {
   #image-app-nav {
-    top: 170px;
+    top: 64px;
   }
 }
 
@@ -54,6 +58,6 @@ a {
   }
 
   #image-app-nav {
-    top: 60px;
+    top: 58px;
   }
 }

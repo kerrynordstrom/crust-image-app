@@ -1,6 +1,7 @@
 import React from "react";
 
 const bikeDetailsMap = {
+  User: ["User Name"],
   Frame: ["Description", "Model", "Frame Size"],
   Drivetrain: [ "Front Derailleur", "Rear Derailleur", "Crank Set", "Bottom Bracket", "Chainring", "Chain","Cassette or Cog", "Pedals"],
   "Contact Points": [ "Stem", "Headset", "Handlebars", "Shift or Brake Levers", "Shifters", "Seat Post", "Saddle" ],

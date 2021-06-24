@@ -22,15 +22,15 @@ const BikesByModel = () => {
     });
     return () => mounted = false;
   }, [bikeModel]);
-  console.log({bikeModel})
   return (
     (bikes.length > 0 && !loading) 
       ? (<div>
           {
-            bikes.map(({photos, bikeDetails, bikeID}, i) => {
+            bikes.map(({photos, bikeDetails, userName, bikeID}, i) => {
               return (
                 <CarouselBike 
                   bikeID={bikeID} 
+                  userName={userName}
                   bikeDetails={bikeDetails} 
                   key={bikeID} 
                   showBike={active} 
@@ -43,7 +43,9 @@ const BikesByModel = () => {
           }
         </div>
         ) : loading 
-          ? (<UploadSpinner loading={loading} size={30} />) 
+          ? (<div className="loading-spinner">
+              <UploadSpinner loading={loading} size={30} />
+            </div>)  
           : (<h1>No bikes yet!</h1>)
   );
 };

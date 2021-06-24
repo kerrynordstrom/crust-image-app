@@ -64,10 +64,11 @@ const BikeToApprove = ({
           content={approved ? "Bike Already Approved" : "Click to Approve"}
         />
       }
-      {bike.map(({ photos, bikeID, bikeModel, bikeDetails }, i) => {
+      {bike.map(({ photos, bikeID, bikeModel, userName, bikeDetails }, i) => {
         return (
           <CarouselBike
             bikeID={bikeID}
+            userName={userName}
             bikeDetails={bikeDetails}
             key={bikeID}
             showBike={active}

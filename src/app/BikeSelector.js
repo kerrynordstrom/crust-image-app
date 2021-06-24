@@ -23,14 +23,19 @@ const useStyles = makeStyles((theme) => ({
   select: {
     display: 'flex',
     flexDirection: 'column',
-  }
+  }, 
+  input: {
+    width: "78%",
+  },
 }));
 
 const BikeSelector = ({ value, handleChange, width }) => {
   let match = useRouteMatch();
   const classes = useStyles();
   const [model, selectModel] = useState("");
+  const [displayName, setDisplayName] = useState('All');
   const detailsModalOpen = false;
+  console.log('value, displayName', {value, displayName})
   return (
     <div
       style={{
@@ -59,18 +64,28 @@ const BikeSelector = ({ value, handleChange, width }) => {
           <Select
             labelId="bike-selection-dropdown-label"
             id="bike-selection-dropdown"
-            className={classes.select}
-            value={value || ""}
+            // className={classes.select}
+            classes={{
+              select: classes.select,
+              input: classes.input,
+            }}
+            value={displayName || ""}
             onChange={handleChange}
           >
             {bikeModels.map((model, i) => {
               return (
                 <MenuItem
                   key={`${model}-${i}`}
-                  value={model.value}
+                  value={model.displayName}
+                  style={{
+                    marginLeft: "20px"
+                  }}
                 >
                   <Link
-                    onClick={() => selectModel(model.value)}
+                    onClick={() => {
+                      selectModel(model.value)
+                      setDisplayName(model.displayName)
+                    }}
                     to={`${match.url}/${model.value}`}
                   >
                     {model.displayName}

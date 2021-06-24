@@ -211,6 +211,12 @@ $ig-transparent: rgba(0, 0, 0, 0) !default;
     min-width: 75vw;
   }
 
+  @media (max-width: $ig-small-screen) {
+    div {
+      min-height: 35vh;
+    }
+  }
+
   &.center {
     position: relative;
   }

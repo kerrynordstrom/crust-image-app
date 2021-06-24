@@ -4,6 +4,7 @@ import {
   Route,
   Link,
   useLocation,
+  Redirect
 } from "react-router-dom";
 import withWidth from "@material-ui/core/withWidth";
 
@@ -66,9 +67,10 @@ function App({width}) {
           <BikeToApprove documentID={query.get("documentID")} />
         </Route>
         <Route exact path="/">
-          <h1
-          id="first-placeholder-message"
-          >Click on the links above to upload your Crust or see other rad Crusts!</h1>
+          <Redirect to="/bikes" />
+        </Route>
+        <Route exact path="#/">
+          <Redirect to="/bikes" />
         </Route>
       </Switch>
     </div>

@@ -37,7 +37,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "start:production": "cross-env REACT_APP_ENVIRONMENT=production react-app-rewired start",
-    "build": "cross-env PUBLIC_URL=https://crust-image-app.s3.us-east-2.amazonaws.com  react-app-rewired build",
+    "build": "cross-env PUBLIC_URL=http://d2km16by4qwqt8.cloudfront.net  react-app-rewired build",
     "build:deploy": "npm run build && s3cmd sync build/* s3://crust-image-app",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
@@ -50,7 +50,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "http://crust-image-app.s3-website.us-east-2.amazonaws.com",
+  "homepage": "http://d2km16by4qwqt8.cloudfront.net",
   "browserslist": {
     "production": [
       ">0.2%",

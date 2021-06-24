@@ -10,11 +10,12 @@ const CarouselButtons = ({closeModal, showBuildList, buildListShowing}) => {
     <div
       style={{
         display: "flex",
-        position: "absolute",
-        minWidth: "50px",
+        position: "sticky",
+        float: "left",
+        width: ".25em",
         zIndex: 1000,
-        top: "30px",
-        left: "0px",
+        top: "0px",
+        left: "10%",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
