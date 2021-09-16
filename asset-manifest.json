@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "http://d2km16by4qwqt8.cloudfront.net/static/css/main.b7d6fa27.chunk.css",
+    "main.js": "http://d2km16by4qwqt8.cloudfront.net/static/js/main.fcabfe20.chunk.js",
+    "main.js.map": "http://d2km16by4qwqt8.cloudfront.net/static/js/main.fcabfe20.chunk.js.map",
+    "runtime-main.js": "http://d2km16by4qwqt8.cloudfront.net/static/js/runtime-main.7b42ac08.js",
+    "runtime-main.js.map": "http://d2km16by4qwqt8.cloudfront.net/static/js/runtime-main.7b42ac08.js.map",
+    "static/js/2.4bc84ba1.chunk.js": "http://d2km16by4qwqt8.cloudfront.net/static/js/2.4bc84ba1.chunk.js",
+    "static/js/2.4bc84ba1.chunk.js.map": "http://d2km16by4qwqt8.cloudfront.net/static/js/2.4bc84ba1.chunk.js.map",
+    "static/js/3.1e6961aa.chunk.js": "http://d2km16by4qwqt8.cloudfront.net/static/js/3.1e6961aa.chunk.js",
+    "static/js/3.1e6961aa.chunk.js.map": "http://d2km16by4qwqt8.cloudfront.net/static/js/3.1e6961aa.chunk.js.map",
+    "index.html": "http://d2km16by4qwqt8.cloudfront.net/index.html",
+    "static/css/main.b7d6fa27.chunk.css.map": "http://d2km16by4qwqt8.cloudfront.net/static/css/main.b7d6fa27.chunk.css.map",
+    "static/js/2.4bc84ba1.chunk.js.LICENSE.txt": "http://d2km16by4qwqt8.cloudfront.net/static/js/2.4bc84ba1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7b42ac08.js",
+    "static/js/2.4bc84ba1.chunk.js",
+    "static/css/main.b7d6fa27.chunk.css",
+    "static/js/main.fcabfe20.chunk.js"
+  ]
+}
