@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const requiredFields = ["Email Address", "Name", "Bike Model", "Description", "Frame Size", "Bottom Bracket", "Crank Set", "Chainring", "Pedals", "Chain", "Cassette or Cog", "Handlebars", "Stem", "Headset", "Seat Post", "Saddle", "Front Hub", "Front Rim", "Front Tire", "Rear Hub", "Rear Rim", "Rear Tire"];
+const requiredFields = ["Email Address", "User Name", "Bike Model", "Description", "Frame Size", "Bottom Bracket", "Crank Set", "Chainring", "Pedals", "Chain", "Cassette or Cog", "Handlebars", "Stem", "Headset", "Seat Post", "Saddle", "Front Hub", "Front Rim", "Front Tire", "Rear Hub", "Rear Rim", "Rear Tire"];
 
 const checkRequired = (bikeDetails) => {
   const reqFulfilled = requiredFields.every(k => bikeDetails[k] !== '' && bikeDetails[k] !== null && bikeDetails[k] !== undefined)
